@@ -175,7 +175,7 @@ export default function Home() {
               </div>
             </div>
             <div className="glass rounded-2xl p-8">
-              <form noValidate className="space-y-6">
+              <form onSubmit={(e) => e.preventDefault()} noValidate className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white-soft mb-2">Your Name</label>
                   <input id="name" type="text" aria-required="true" placeholder="John Smith" className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3 text-white placeholder-slate-text/50 focus:border-neon focus:ring-1 focus:ring-neon focus:outline-none transition-colors"/>
