@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -54,7 +55,19 @@ export default function Home() {
         </nav>
       </header>
 
-      <main id="main-content" role="main">
+      
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{__html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Moving Company",
+            "url": "https://moving-company.com",
+            "description": "Professional moving company services.",
+          })}}
+        />
+
+        <main id="main-content" role="main">
         <section aria-labelledby="hero-heading" className="pt-24 pb-16 relative overflow-hidden grid-bg">
           <div className="absolute inset-0" aria-hidden="true">
             <div className="absolute top-20 right-20 w-96 h-96 bg-neon/10 rounded-full blur-[120px]"/>
@@ -175,14 +188,14 @@ export default function Home() {
               </div>
             </div>
             <div className="glass rounded-2xl p-8">
-              <form onSubmit={(e) => e.preventDefault()} noValidate className="space-y-6">
+              <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 3000); }} noValidate className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white-soft mb-2">Your Name</label>
                   <input id="name" type="text" aria-required="true" placeholder="John Smith" className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3 text-white placeholder-slate-text/50 focus:border-neon focus:ring-1 focus:ring-neon focus:outline-none transition-colors"/>
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-white-soft mb-2">Phone</label>
-                  <input id="phone" type="tel" aria-required="true" placeholder="(555) 000-0000" className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3 text-white placeholder-slate-text/50 focus:border-neon focus:ring-1 focus:ring-neon focus:outline-none transition-colors"/>
+                  <input id="phone" type="tel" aria-required="true" placeholder="<a href="tel:(555) 000-0000" className="hover:underline">(555) 000-0000</a>" className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3 text-white placeholder-slate-text/50 focus:border-neon focus:ring-1 focus:ring-neon focus:outline-none transition-colors"/>
                 </div>
                 <div>
                   <label htmlFor="move-type" className="block text-sm font-medium text-white-soft mb-2">Move Type</label>
@@ -199,7 +212,34 @@ export default function Home() {
                   <textarea id="details" rows={3} placeholder="Moving from... to... with approximately X items..." className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3 text-white placeholder-slate-text/50 focus:border-neon focus:ring-1 focus:ring-neon focus:outline-none transition-colors resize-none"/>
                 </div>
                 <button type="submit" aria-label="Request your free moving quote" className="w-full bg-neon text-dark py-4 rounded-xl font-bold hover:bg-neon-dim transition-all hover:scale-[1.02] neon-glow focus-visible:outline-2 focus-visible:outline-neon focus-visible:outline-offset-2">Get Free Quote</button>
+              {submitted && <p className="text-center text-green-500 text-sm mt-2 animate-pulse">Sent! We will be in touch soon.</p>}
               </form>
+            </div>
+          </div>
+        </section>
+      
+        {/* FAQ Section */}
+        <section className="py-24" aria-labelledby="faq-heading">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+              <p className="text-current/60">Everything you need to know.</p>
+            </div>
+            <div className="space-y-4">
+              {{[
+          {question: 'How do I schedule an appointment?', answer: 'Call us, text us, or fill out the contact form. We typically respond within 1 hour during business hours.'},
+          {question: 'Are you licensed and insured?', answer: 'Yes. We are fully licensed, bonded, and carry comprehensive liability insurance.'},
+          {question: 'Do you offer free estimates?', answer: 'Yes. We provide free, no-obligation estimates for all services. Call or fill out our form to get started.'},
+          {question: 'What areas do you serve?', answer: 'We serve the entire metro area. Contact us to confirm service availability in your specific location.'}
+              ].map((faq, i) => (
+                <details key={i} className="group border border-current/10 rounded-xl p-5 [&_summary]:cursor-pointer">
+                  <summary className="font-medium flex justify-between items-center list-none">
+                    {faq.question}
+                    <span className="ml-4 text-current/40 group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-3 text-current/60 text-sm leading-relaxed">{faq.answer}</p>
+                </details>
+              ))}}
             </div>
           </div>
         </section>
@@ -217,7 +257,13 @@ export default function Home() {
           <div className="mt-8 pt-8 border-t border-dark-border text-center">
             <p className="text-slate-text/60 text-xs">© 2024 SwiftMove Moving Company. All rights reserved.</p>
           </div>
-        </div>
+        
+            <div className="flex gap-4 text-sm">
+              <a href="#" className="hover:underline">Twitter</a>
+              <a href="#" className="hover:underline">LinkedIn</a>
+              <a href="#" className="hover:underline">Instagram</a>
+            </div>
+          </div>
       </footer>
     </div>
   );
