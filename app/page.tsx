@@ -76,18 +76,9 @@ simple.
               </div>
             </div>
             <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-amber-400">10K+</div>
-              <div className="text-sm text-amber-300 mt-1">Moves completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-amber-400">On-Time</div>
-              <div className="text-sm text-amber-300 mt-1">Guaranteed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-amber-400">Licensed</div>
-              <div className="text-sm text-amber-300 mt-1">USDOT carrier</div>
-            </div>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-bold text-amber-400">10K+</div><div className="text-sm text-amber-300 mt-1">Moves completed</div></div>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-bold text-amber-400">On-Time</div><div className="text-sm text-amber-300 mt-1">Guaranteed</div></div>
+            <div className="text-center"><div className="text-3xl md:text-4xl font-bold text-amber-400">Licensed</div><div className="text-sm text-amber-300 mt-1">USDOT carrier</div></div>
             </div>
           </div>
         </section>
@@ -99,36 +90,30 @@ simple.
               <h2 id="services-heading" className="text-4xl md:text-5xl font-bold">Our Services</h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🏠</div>
+            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🏠</div>
               <h3 className="text-xl font-bold mb-3 text-amber-50">Local Moving</h3>
-              <p className="text-amber-300 leading-relaxed">Same-city residential moves.</p>
-            </article>
-            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🚛</div>
+              <p className="text-amber-300 leading-relaxed">Same-city residential moves.</p></article>
+            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🚛</div>
               <h3 className="text-xl font-bold mb-3 text-amber-50">Long Distance</h3>
-              <p className="text-amber-300 leading-relaxed">Interstate moves nationwide.</p>
-            </article>
-            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">📦</div>
+              <p className="text-amber-300 leading-relaxed">Interstate moves nationwide.</p></article>
+            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">📦</div>
               <h3 className="text-xl font-bold mb-3 text-amber-50">Packing</h3>
-              <p className="text-amber-300 leading-relaxed">Full and partial packing services.</p>
-            </article>
-            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🏗️</div>
+              <p className="text-amber-300 leading-relaxed">Full and partial packing services.</p></article>
+            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🏗️</div>
               <h3 className="text-xl font-bold mb-3 text-amber-50">Storage</h3>
-              <p className="text-amber-300 leading-relaxed">Climate-controlled storage units.</p>
-            </article>
-            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🏢</div>
+              <p className="text-amber-300 leading-relaxed">Climate-controlled storage units.</p></article>
+            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🏢</div>
               <h3 className="text-xl font-bold mb-3 text-amber-50">Commercial</h3>
-              <p className="text-amber-300 leading-relaxed">Office and business relocations.</p>
-            </article>
-            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
-              <div className="text-4xl mb-4" aria-hidden="true">🎹</div>
+              <p className="text-amber-300 leading-relaxed">Office and business relocations.</p></article>
+            <article className="bg-amber-900 border border-amber-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="text-4xl mb-4">🎹</div>
               <h3 className="text-xl font-bold mb-3 text-amber-50">Specialty</h3>
-              <p className="text-amber-300 leading-relaxed">Piano, art, antiques handling.</p>
-            </article>
+              <p className="text-amber-300 leading-relaxed">Piano, art, antiques handling.</p></article>
             </div>
           </div>
         </section>
@@ -142,28 +127,16 @@ simple.
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-amber-900 border border-amber-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-amber-400/20 flex items-center justify-center text-2xl font-bold text-amber-400">TT</div>
-              <h3 className="font-bold text-amber-50">Tom Torres</h3>
-              <p className="text-sm text-amber-400">Operations Director</p>
-              <p className="text-sm text-amber-300 mt-1">15yr moving</p>
-            </div>
+              <h3 className="font-bold text-amber-50">Tom Torres</h3><p className="text-sm text-amber-400">Operations Director</p><p className="text-sm text-amber-300 mt-1">15yr moving</p></div>
             <div className="bg-amber-900 border border-amber-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-amber-400/20 flex items-center justify-center text-2xl font-bold text-amber-400">SK</div>
-              <h3 className="font-bold text-amber-50">Sarah Kim</h3>
-              <p className="text-sm text-amber-400">Move Coordinator</p>
-              <p className="text-sm text-amber-300 mt-1">Customer service pro</p>
-            </div>
+              <h3 className="font-bold text-amber-50">Sarah Kim</h3><p className="text-sm text-amber-400">Move Coordinator</p><p className="text-sm text-amber-300 mt-1">Customer service pro</p></div>
             <div className="bg-amber-900 border border-amber-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-amber-400/20 flex items-center justify-center text-2xl font-bold text-amber-400">CR</div>
-              <h3 className="font-bold text-amber-50">Carlos Rivera</h3>
-              <p className="text-sm text-amber-400">Lead Mover</p>
-              <p className="text-sm text-amber-300 mt-1">Furniture specialist</p>
-            </div>
+              <h3 className="font-bold text-amber-50">Carlos Rivera</h3><p className="text-sm text-amber-400">Lead Mover</p><p className="text-sm text-amber-300 mt-1">Furniture specialist</p></div>
             <div className="bg-amber-900 border border-amber-800 rounded-2xl p-6 text-center">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-amber-400/20 flex items-center justify-center text-2xl font-bold text-amber-400">EP</div>
-              <h3 className="font-bold text-amber-50">Emily Park</h3>
-              <p className="text-sm text-amber-400">Logistics</p>
-              <p className="text-sm text-amber-300 mt-1">Route optimization</p>
-            </div>
+              <h3 className="font-bold text-amber-50">Emily Park</h3><p className="text-sm text-amber-400">Logistics</p><p className="text-sm text-amber-300 mt-1">Route optimization</p></div>
             </div>
           </div>
         </section>
@@ -176,26 +149,14 @@ simple.
             </div>
             <div className="space-y-4">
             <details className="group border border-current/10 rounded-xl p-5 cursor-pointer">
-              <summary className="font-medium flex justify-between items-center list-none text-amber-50">
-                How far ahead?
-                <span className="ml-4 text-amber-300 group-open:rotate-45 transition-transform text-xl">+</span>
-              </summary>
-              <p className="mt-3 text-amber-300 text-sm leading-relaxed">2-4 weeks recommended, rush available.</p>
-            </details>
+              <summary className="font-medium flex justify-between items-center list-none text-amber-50">How far ahead?<span className="ml-4 text-amber-300 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+              <p className="mt-3 text-amber-300 text-sm leading-relaxed">2-4 weeks recommended, rush available.</p></details>
             <details className="group border border-current/10 rounded-xl p-5 cursor-pointer">
-              <summary className="font-medium flex justify-between items-center list-none text-amber-50">
-                Insurance?
-                <span className="ml-4 text-amber-300 group-open:rotate-45 transition-transform text-xl">+</span>
-              </summary>
-              <p className="mt-3 text-amber-300 text-sm leading-relaxed">Full value protection included.</p>
-            </details>
+              <summary className="font-medium flex justify-between items-center list-none text-amber-50">Insurance?<span className="ml-4 text-amber-300 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+              <p className="mt-3 text-amber-300 text-sm leading-relaxed">Full value protection included.</p></details>
             <details className="group border border-current/10 rounded-xl p-5 cursor-pointer">
-              <summary className="font-medium flex justify-between items-center list-none text-amber-50">
-                Packing?
-                <span className="ml-4 text-amber-300 group-open:rotate-45 transition-transform text-xl">+</span>
-              </summary>
-              <p className="mt-3 text-amber-300 text-sm leading-relaxed">Full packing available, or we supply boxes.</p>
-            </details>
+              <summary className="font-medium flex justify-between items-center list-none text-amber-50">Packing?<span className="ml-4 text-amber-300 group-open:rotate-45 transition-transform text-xl">+</span></summary>
+              <p className="mt-3 text-amber-300 text-sm leading-relaxed">Full packing available, or we supply boxes.</p></details>
             </div>
           </div>
         </section>
@@ -207,18 +168,9 @@ simple.
                 <p className="text-amber-400 text-sm tracking-widest uppercase mb-3">Get In Touch</p>
                 <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold mb-6">Get Quote</h2>
                 <div className="space-y-6 text-amber-300">
-                  <div>
-                    <div className="font-bold text-amber-50">Phone</div>
-                    <a href="tel:(555) 901-2347" className="hover:text-amber-400 transition-colors">(555) 901-2347</a>
-                  </div>
-                  <div>
-                    <div className="font-bold text-amber-50">Address</div>
-                    <p className="whitespace-pre-line">Serving Metro Chicago, IL</p>
-                  </div>
-                  <div>
-                    <div className="font-bold text-amber-50">Hours</div>
-                    <p>Mon–Sat 7 AM – 8 PM</p>
-                  </div>
+                  <div><div className="font-bold text-amber-50">Phone</div><a href="tel:(555) 901-2347" className="hover:text-amber-400">(555) 901-2347</a></div>
+                  <div><div className="font-bold text-amber-50">Address</div><p>Serving Metro Chicago, IL</p></div>
+                  <div><div className="font-bold text-amber-50">Hours</div><p>Mon–Sat 7 AM – 8 PM</p></div>
                 </div>
               </div>
               <div>
