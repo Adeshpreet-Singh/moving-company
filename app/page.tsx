@@ -195,7 +195,7 @@ export default function Home() {
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-white-soft mb-2">Phone</label>
-                  <input id="phone" type="tel" aria-required="true" placeholder="<a href="tel:(555) 000-0000" className="hover:underline">(555) 000-0000</a>" className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3 text-white placeholder-slate-text/50 focus:border-neon focus:ring-1 focus:ring-neon focus:outline-none transition-colors"/>
+                  <input id="phone" type="tel" aria-required="true" placeholder="(555) 000-0000" className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3 text-white placeholder-slate-text/50 focus:border-neon focus:ring-1 focus:ring-neon focus:outline-none transition-colors"/>
                 </div>
                 <div>
                   <label htmlFor="move-type" className="block text-sm font-medium text-white-soft mb-2">Move Type</label>
@@ -227,7 +227,7 @@ export default function Home() {
               <p className="text-current/60">A selection of recent projects.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {{[
+              {[
           {title: 'Before & After', img: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80', desc: 'Complete renovation project'},
           {title: 'Residential Job', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80', desc: 'Professional service delivery'},
           {title: 'Commercial Project', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80', desc: 'Large-scale commercial work'},
@@ -244,7 +244,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              ))}}
+              ))}
             </div>
           </div>
         </section>
@@ -257,7 +257,7 @@ export default function Home() {
               <p className="text-current/60">Everything you need to know.</p>
             </div>
             <div className="space-y-4">
-              {{[
+              {[
           {question: 'How do I schedule an appointment?', answer: 'Call us, text us, or fill out the contact form. We typically respond within 1 hour during business hours.'},
           {question: 'Are you licensed and insured?', answer: 'Yes. We are fully licensed, bonded, and carry comprehensive liability insurance.'},
           {question: 'Do you offer free estimates?', answer: 'Yes. We provide free, no-obligation estimates for all services. Call or fill out our form to get started.'},
@@ -270,7 +270,7 @@ export default function Home() {
                   </summary>
                   <p className="mt-3 text-current/60 text-sm leading-relaxed">{faq.answer}</p>
                 </details>
-              ))}}
+              ))}
             </div>
           </div>
         </section>
