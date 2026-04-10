@@ -32,7 +32,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-8 border-y border-stone-800">
+        <section className="reveal py-8 border-y border-stone-800">
           <div className="max-w-6xl mx-auto px-6 grid grid-cols-3 gap-8 text-center">
             <div><div className="text-3xl font-black text-amber-500">10K+</div><div className="text-xs text-stone-500 uppercase">Moves Done</div></div>
             <div><div className="text-3xl font-black text-amber-500">On-Time</div><div className="text-xs text-stone-500 uppercase">Guaranteed</div></div>
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="py-24" aria-labelledby="services-heading">
+        <section id="services" className="reveal py-24" aria-labelledby="services-heading">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16"><h2 id="services-heading" className="text-4xl font-black uppercase">Services</h2></div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="py-24 bg-stone-900/30" aria-labelledby="contact-heading">
+        <section id="contact" className="reveal py-24 bg-stone-900/30" aria-labelledby="contact-heading">
           <div className="max-w-2xl mx-auto px-6 text-center">
             <h2 id="contact-heading" className="text-4xl font-black uppercase mb-4">Get a Free Quote</h2>
             <p className="text-stone-400 mb-10">We respond within 2 hours. No obligation, no hidden fees.</p>
