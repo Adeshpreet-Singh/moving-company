@@ -73,12 +73,12 @@ export default function Home() {
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-amber-600 text-white px-4 py-2 rounded z-[100] font-bold">Skip</a>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0c0a09]/95 backdrop-blur-md border-b border-stone-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div><h1 className="text-xl font-black uppercase text-amber-500">SwiftMove</h1><p className="text-[10px] tracking-[0.2em] text-stone-500 uppercase">Professional Moving — Chicago</p></div>
+          <div><h1 className="text-xl font-black uppercase text-amber-500">SwiftMove</h1><p className="text-[10px] tracking-[0.2em] text-stone-400 uppercase">Professional Moving — Chicago</p></div>
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollTo('services')} className="text-sm text-stone-400 hover:text-amber-500">Services</button>
-            <button onClick={() => scrollTo('pricing')} className="text-sm text-stone-400 hover:text-amber-500">Pricing</button>
-            <button onClick={() => scrollTo('testimonials')} className="text-sm text-stone-400 hover:text-amber-500">Reviews</button>
-            <button onClick={() => scrollTo('faq')} className="text-sm text-stone-400 hover:text-amber-500">FAQ</button>
+            <button onClick={() => scrollTo('services')} className="text-base text-stone-300 hover:text-amber-500">Services</button>
+            <button onClick={() => scrollTo('pricing')} className="text-base text-stone-300 hover:text-amber-500">Pricing</button>
+            <button onClick={() => scrollTo('testimonials')} className="text-base text-stone-300 hover:text-amber-500">Reviews</button>
+            <button onClick={() => scrollTo('faq')} className="text-base text-stone-300 hover:text-amber-500">FAQ</button>
             <button onClick={() => scrollTo('contact')} className="bg-amber-600 text-white px-5 py-2.5 text-sm font-bold rounded-full hover:bg-amber-500">Get Quote</button>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6 py-20 md:py-32 text-center">
             <p className="badge text-amber-500 text-sm tracking-[0.3em] uppercase mb-4">Licensed & Insured — Est. 2015</p>
             <h2 className="heading text-5xl md:text-7xl font-black uppercase leading-[0.85] mb-6">Your move,<br /><span className="text-amber-500">made simple.</span></h2>
-            <p className="text-xl text-stone-400 max-w-2xl mx-auto mb-10">Professional moving with careful handling, transparent pricing, and on-time delivery guaranteed. From studio apartments to full office relocations, SwiftMove handles it all with care and precision.</p>
+            <p className="text-xl text-stone-300 max-w-2xl mx-auto mb-10">Professional moving with careful handling, transparent pricing, and on-time delivery guaranteed. From studio apartments to full office relocations, SwiftMove handles it all with care and precision.</p>
             <div className="flex justify-center gap-4 flex-wrap">
               <button onClick={() => scrollTo('contact')} className="btn bg-amber-600 text-white px-8 py-4 text-lg font-bold rounded-full hover:bg-amber-500">Get Free Quote</button>
               <button onClick={() => scrollTo('services')} className="btn-outline border-2 border-stone-600 text-stone-300 px-8 py-4 text-lg rounded-full hover:border-amber-500">Our Services</button>
@@ -101,9 +101,9 @@ export default function Home() {
         {/* Stats Bar */}
         <section className="reveal py-10 border-y border-stone-800">
           <div className="max-w-6xl mx-auto px-6 grid grid-cols-3 gap-8 text-center">
-            <div><div className="text-3xl md:text-4xl font-black text-amber-500">10+ Years</div><div className="text-xs text-stone-500 uppercase mt-1">In Business</div></div>
-            <div><div className="text-3xl md:text-4xl font-black text-amber-500">15K+ Moves</div><div className="text-xs text-stone-500 uppercase mt-1">Successfully Completed</div></div>
-            <div><div className="text-3xl md:text-4xl font-black text-amber-500">4.9 Rating</div><div className="text-xs text-stone-500 uppercase mt-1">Average Customer Score</div></div>
+            <div><div className="text-3xl md:text-4xl font-black text-amber-500">10+ Years</div><div className="text-xs text-stone-400 uppercase mt-1">In Business</div></div>
+            <div><div className="text-3xl md:text-4xl font-black text-amber-500">15K+ Moves</div><div className="text-xs text-stone-400 uppercase mt-1">Successfully Completed</div></div>
+            <div><div className="text-3xl md:text-4xl font-black text-amber-500">4.9 Rating</div><div className="text-xs text-stone-400 uppercase mt-1">Average Customer Score</div></div>
           </div>
         </section>
 
@@ -112,14 +112,14 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 id="services-heading" className="heading text-4xl font-black uppercase mb-4">Our Services</h2>
-              <p className="text-stone-400 max-w-xl mx-auto">Seven specialized services designed to cover every moving need. From local apartment moves to cross-country relocations and everything in between.</p>
+              <p className="text-stone-300 max-w-xl mx-auto">Seven specialized services designed to cover every moving need. From local apartment moves to cross-country relocations and everything in between.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((s, i) => (
                 <div key={i} className="card border border-stone-800 rounded-lg p-8 hover:border-amber-500/40 transition-colors">
                   <div className="text-4xl mb-4">{s.icon}</div>
                   <h3 className="text-xl font-black uppercase mb-2">{s.name}</h3>
-                  <p className="text-stone-400 text-sm mb-3 leading-relaxed">{s.desc}</p>
+                  <p className="text-stone-300 text-sm mb-3 leading-relaxed">{s.desc}</p>
                   <div className="text-amber-500 font-bold">{s.price}</div>
                 </div>
               ))}
@@ -132,14 +132,14 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 id="how-heading" className="heading text-4xl font-black uppercase mb-4">How It Works</h2>
-              <p className="text-stone-400 max-w-xl mx-auto">Four simple steps from first call to settled in. We handle the heavy lifting so you can focus on your new beginning.</p>
+              <p className="text-stone-300 max-w-xl mx-auto">Four simple steps from first call to settled in. We handle the heavy lifting so you can focus on your new beginning.</p>
             </div>
             <div className="grid md:grid-cols-4 gap-8">
               {steps.map((s, i) => (
                 <div key={i} className="text-center">
                   <div className="text-6xl font-black text-amber-500/20 mb-4">{s.num}</div>
                   <h3 className="text-lg font-black uppercase mb-3">{s.title}</h3>
-                  <p className="text-stone-400 text-sm leading-relaxed">{s.desc}</p>
+                  <p className="text-stone-300 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -151,12 +151,12 @@ export default function Home() {
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 id="pricing-heading" className="heading text-4xl font-black uppercase mb-4">Transparent Pricing</h2>
-              <p className="text-stone-400 max-w-xl mx-auto">No hidden fees. No surprise charges. Here are sample price ranges to help you plan. Your final quote is always free and obligation-free.</p>
+              <p className="text-stone-300 max-w-xl mx-auto">No hidden fees. No surprise charges. Here are sample price ranges to help you plan. Your final quote is always free and obligation-free.</p>
             </div>
             <div className="border border-stone-800 rounded-xl overflow-hidden">
               <div className="grid grid-cols-2 bg-stone-900/50 px-6 py-4 border-b border-stone-800">
-                <div className="font-bold uppercase text-sm text-stone-400">Move Type</div>
-                <div className="font-bold uppercase text-sm text-stone-400 text-right">Price Range</div>
+                <div className="font-bold uppercase text-base text-stone-300">Move Type</div>
+                <div className="font-bold uppercase text-base text-stone-300 text-right">Price Range</div>
               </div>
               {samplePrices.map((p, i) => (
                 <div key={i} className="grid grid-cols-2 px-6 py-4 border-b border-stone-800/50 last:border-b-0 hover:bg-stone-900/20 transition-colors">
@@ -165,7 +165,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="text-stone-500 text-sm text-center mt-6">Prices vary based on inventory, distance, and services requested. Request a free binding estimate for exact pricing.</p>
+            <p className="text-stone-400 text-sm text-center mt-6">Prices vary based on inventory, distance, and services requested. Request a free binding estimate for exact pricing.</p>
           </div>
         </section>
 
@@ -174,7 +174,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 id="checklist-heading" className="heading text-4xl font-black uppercase mb-4">Moving Checklist</h2>
-              <p className="text-stone-400 max-w-xl mx-auto">Stay organized with our ten-step pre-move checklist. Print it out or save it to your phone and check items off as you go.</p>
+              <p className="text-stone-300 max-w-xl mx-auto">Stay organized with our ten-step pre-move checklist. Print it out or save it to your phone and check items off as you go.</p>
             </div>
             <div className="space-y-4">
               {checklist.map((item, i) => (
@@ -192,7 +192,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 id="testimonials-heading" className="heading text-4xl font-black uppercase mb-4">What Our Customers Say</h2>
-              <p className="text-stone-400 max-w-xl mx-auto">Over fifteen thousand moves and a 4.9 average rating. Here is what recent customers have to say about their SwiftMove experience.</p>
+              <p className="text-stone-300 max-w-xl mx-auto">Over fifteen thousand moves and a 4.9 average rating. Here is what recent customers have to say about their SwiftMove experience.</p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((t, i) => (
@@ -201,7 +201,7 @@ export default function Home() {
                   <p className="text-stone-300 text-sm leading-relaxed mb-6 italic">&ldquo;{t.text}&rdquo;</p>
                   <div>
                     <div className="font-bold text-stone-100">{t.name}</div>
-                    <div className="text-xs text-stone-500">{t.location}</div>
+                    <div className="text-xs text-stone-400">{t.location}</div>
                   </div>
                 </div>
               ))}
@@ -214,7 +214,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 id="faq-heading" className="heading text-4xl font-black uppercase mb-4">Frequently Asked Questions</h2>
-              <p className="text-stone-400 max-w-xl mx-auto">Answers to the most common questions about pricing, insurance, timing, and what to expect on moving day.</p>
+              <p className="text-stone-300 max-w-xl mx-auto">Answers to the most common questions about pricing, insurance, timing, and what to expect on moving day.</p>
             </div>
             <div className="space-y-4">
               {faqs.map((f, i) => (
@@ -225,7 +225,7 @@ export default function Home() {
                   </button>
                   {openFaq === i && (
                     <div className="px-6 pb-6">
-                      <p className="text-stone-400 text-sm leading-relaxed">{f.a}</p>
+                      <p className="text-stone-300 text-sm leading-relaxed">{f.a}</p>
                     </div>
                   )}
                 </div>
@@ -238,27 +238,27 @@ export default function Home() {
         <section id="contact" className="reveal py-24" aria-labelledby="contact-heading">
           <div className="max-w-2xl mx-auto px-6 text-center">
             <h2 id="contact-heading" className="heading text-4xl font-black uppercase mb-4">Get a Free Quote</h2>
-            <p className="text-stone-400 mb-10">We respond within 2 hours. No obligation, no hidden fees. Fill out the form below and a move coordinator will reach out to finalize your estimate.</p>
+            <p className="text-stone-300 mb-10">We respond within 2 hours. No obligation, no hidden fees. Fill out the form below and a move coordinator will reach out to finalize your estimate.</p>
             <form className="card border border-stone-800 rounded-xl p-8 space-y-5 text-left" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 4000); }}>
               <div className="grid grid-cols-2 gap-5">
-                <div><label className="block text-sm mb-2 text-stone-400">Name</label><input type="text" placeholder="Your name" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
-                <div><label className="block text-sm mb-2 text-stone-400">Phone</label><input type="tel" placeholder="(555) 000-0000" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Name</label><input type="text" placeholder="Your name" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Phone</label><input type="tel" placeholder="(555) 000-0000" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
               </div>
-              <div><label className="block text-sm mb-2 text-stone-400">Email</label><input type="email" placeholder="you@example.com" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
+              <div><label className="block text-sm mb-2 text-stone-300">Email</label><input type="email" placeholder="you@example.com" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
               <div className="grid grid-cols-2 gap-5">
-                <div><label className="block text-sm mb-2 text-stone-400">Moving From</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
-                <div><label className="block text-sm mb-2 text-stone-400">Moving To</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Moving From</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Moving To</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none" /></div>
               </div>
               <div className="grid grid-cols-2 gap-5">
-                <div><label className="block text-sm mb-2 text-stone-400">Move Type</label>
+                <div><label className="block text-sm mb-2 text-stone-300">Move Type</label>
                   <select className="w-full border border-stone-700 bg-[#0c0a09] px-4 py-3 rounded-lg focus:border-amber-500 focus:outline-none text-stone-100">
                     <option>Local Move</option><option>Long Distance</option><option>Commercial</option><option>Senior Moving</option><option>Storage Needed</option>
                   </select>
                 </div>
-                <div><label className="block text-sm mb-2 text-stone-400">Preferred Date</label><input type="date" className="w-full border border-stone-700 bg-[#0c0a09] px-4 py-3 rounded-lg focus:border-amber-500 focus:outline-none text-stone-100" /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Preferred Date</label><input type="date" className="w-full border border-stone-700 bg-[#0c0a09] px-4 py-3 rounded-lg focus:border-amber-500 focus:outline-none text-stone-100" /></div>
               </div>
-              <div><label className="block text-sm mb-2 text-stone-400">Additional Details</label><textarea rows={3} placeholder="Describe your move: number of rooms, large items, special requirements..." className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none resize-none"></textarea></div>
-              <button type="submit" disabled={submitted} className="btn w-full bg-amber-600 text-white py-4 rounded-lg font-black uppercase hover:bg-amber-500 transition-colors disabled:opacity-60">{submitted ? '✓ Quote Sent! We\'ll call within 2 hours' : 'Get Free Quote'}</button>
+              <div><label className="block text-sm mb-2 text-stone-300">Additional Details</label><textarea rows={3} placeholder="Describe your move: number of rooms, large items, special requirements..." className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-600 focus:border-amber-500 focus:outline-none resize-none"></textarea></div>
+              <button type="submit" disabled={submitted} className="btn w-full bg-amber-600 text-white py-4 rounded-lg font-black uppercase hover:bg-amber-500 transition-colors disabled:opacity-80">{submitted ? '✓ Quote Sent! We\'ll call within 2 hours' : 'Get Free Quote'}</button>
             </form>
           </div>
         </section>
