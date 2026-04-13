@@ -139,7 +139,7 @@ export default function Home() {
                 <div key={i} className="text-center">
                   <div className="text-6xl font-black text-amber-500/20 mb-4">{s.num}</div>
                   <h3 className="text-lg font-black uppercase mb-3">{s.title}</h3>
-                  <p className="text-stone-300 text-sm leading-relaxed">{s.desc}</p>
+                  <p className="text-stone-200 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>
@@ -159,7 +159,7 @@ export default function Home() {
                 <div className="font-bold uppercase text-base text-stone-300 text-right">Price Range</div>
               </div>
               {samplePrices.map((p, i) => (
-                <div key={i} className="grid grid-cols-2 px-6 py-4 border-b border-stone-800/50 last:border-b-0 hover:bg-stone-900/20 transition-colors">
+                <div key={i} className="grid grid-cols-2 px-6 py-4 border-b border-stone-700 last:border-b-0 hover:bg-stone-900/20 transition-colors">
                   <div className="text-stone-300">{p.type}</div>
                   <div className="text-amber-500 font-bold text-right">{p.range}</div>
                 </div>
@@ -220,12 +220,12 @@ export default function Home() {
               {faqs.map((f, i) => (
                 <div key={i} className="border border-stone-800 rounded-lg overflow-hidden">
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="btn w-full flex justify-between items-center px-6 py-5 text-left hover:bg-stone-900/30 transition-colors">
-                    <span className="font-bold text-stone-200 pr-4">{f.q}</span>
+                    <span className="font-bold text-stone-100 pr-4">{f.q}</span>
                     <span className="text-amber-500 text-2xl leading-none flex-shrink-0">{openFaq === i ? '−' : '+'}</span>
                   </button>
                   {openFaq === i && (
                     <div className="px-6 pb-6">
-                      <p className="text-stone-300 text-sm leading-relaxed">{f.a}</p>
+                      <p className="text-stone-200 text-sm leading-relaxed">{f.a}</p>
                     </div>
                   )}
                 </div>
