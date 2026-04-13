@@ -75,11 +75,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div><h1 className="text-xl font-black uppercase text-amber-500">SwiftMove</h1><p className="text-base tracking-[0.2em] text-stone-400 uppercase">Professional Moving — Chicago</p></div>
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollTo('services')} className="btn text-base text-stone-300 hover:text-amber-500">Services</button>
-            <button onClick={() => scrollTo('pricing')} className="btn text-base text-stone-300 hover:text-amber-500">Pricing</button>
-            <button onClick={() => scrollTo('testimonials')} className="btn text-base text-stone-300 hover:text-amber-500">Reviews</button>
-            <button onClick={() => scrollTo('faq')} className="btn text-base text-stone-300 hover:text-amber-500">FAQ</button>
-            <button onClick={() => scrollTo('contact')} className="btn bg-amber-600 text-white px-5 py-2.5 text-base font-bold rounded-full hover:bg-amber-500">Get Quote</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('services')} className="btn text-base text-stone-300 hover:text-amber-500">Services</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('pricing')} className="btn text-base text-stone-300 hover:text-amber-500">Pricing</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('testimonials')} className="btn text-base text-stone-300 hover:text-amber-500">Reviews</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('faq')} className="btn text-base text-stone-300 hover:text-amber-500">FAQ</button>
+            <button style={{ cursor: "pointer" }} onClick={() => scrollTo('contact')} className="btn bg-amber-600 text-white px-5 py-2.5 text-base font-bold rounded-full hover:bg-amber-500">Get Quote</button>
           </div>
         </div>
       </nav>
@@ -92,8 +92,8 @@ export default function Home() {
             <h2 className="heading text-5xl md:text-7xl font-black uppercase leading-[0.85] mb-6">Your move,<br /><span className="text-amber-500">made simple.</span></h2>
             <p className="text-xl text-stone-300 max-w-2xl mx-auto mb-10">Professional moving with careful handling, transparent pricing, and on-time delivery guaranteed. From studio apartments to full office relocations, SwiftMove handles it all with care and precision.</p>
             <div className="flex justify-center gap-4 flex-wrap">
-              <button onClick={() => scrollTo('contact')} className="btn btn bg-amber-600 text-white px-8 py-4 text-lg font-bold rounded-full hover:bg-amber-500">Get Free Quote</button>
-              <button onClick={() => scrollTo('services')} className="btn btn-outline border-2 border-stone-600 text-stone-300 px-8 py-4 text-lg rounded-full hover:border-amber-500">Our Services</button>
+              <button style={{ cursor: "pointer" }} onClick={() => scrollTo('contact')} className="btn btn bg-amber-600 text-white px-8 py-4 text-lg font-bold rounded-full hover:bg-amber-500">Get Free Quote</button>
+              <button style={{ cursor: "pointer" }} onClick={() => scrollTo('services')} className="btn btn-outline border-2 border-stone-600 text-stone-300 px-8 py-4 text-lg rounded-full hover:border-amber-500">Our Services</button>
             </div>
           </div>
         </section>
@@ -219,7 +219,7 @@ export default function Home() {
             <div className="space-y-4">
               {faqs.map((f, i) => (
                 <div key={i} className="border border-stone-800 rounded-lg overflow-hidden">
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="btn w-full flex justify-between items-center px-6 py-5 text-left hover:bg-stone-900/30 transition-colors">
+                  <button style={{ cursor: "pointer" }} onClick={() => setOpenFaq(openFaq === i ? null : i)} className="btn w-full flex justify-between items-center px-6 py-5 text-left hover:bg-stone-900/30 transition-colors">
                     <span className="font-bold text-stone-100 pr-4">{f.q}</span>
                     <span className="text-amber-500 text-2xl leading-none flex-shrink-0">{openFaq === i ? '−' : '+'}</span>
                   </button>
@@ -241,13 +241,13 @@ export default function Home() {
             <p className="text-stone-300 mb-10">We respond within 2 hours. No obligation, no hidden fees. Fill out the form below and a move coordinator will reach out to finalize your estimate.</p>
             <form className="card border border-stone-800 rounded-xl p-8 space-y-5 text-left" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 4000); }}>
               <div className="grid grid-cols-2 gap-5">
-                <div><label className="block text-sm mb-2 text-stone-300">Name</label><input type="text" placeholder="Your name" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300 " /></div>
-                <div><label className="block text-sm mb-2 text-stone-300">Phone</label><input type="tel" placeholder="(555) 000-0000" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300 " /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Name</label><input type="text" placeholder="Your name" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300  border-2 border-current/20" /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Phone</label><input type="tel" placeholder="(555) 000-0000" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300  border-2 border-current/20" /></div>
               </div>
-              <div><label className="block text-sm mb-2 text-stone-300">Email</label><input type="email" placeholder="you@example.com" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300 " /></div>
+              <div><label className="block text-sm mb-2 text-stone-300">Email</label><input type="email" placeholder="you@example.com" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300  border-2 border-current/20" /></div>
               <div className="grid grid-cols-2 gap-5">
-                <div><label className="block text-sm mb-2 text-stone-300">Moving From</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300 " /></div>
-                <div><label className="block text-sm mb-2 text-stone-300">Moving To</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300 " /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Moving From</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300  border-2 border-current/20" /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Moving To</label><input type="text" placeholder="City, State" required className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none border border-gray-300  border-2 border-current/20" /></div>
               </div>
               <div className="grid grid-cols-2 gap-5">
                 <div><label className="block text-sm mb-2 text-stone-300">Move Type</label>
@@ -255,10 +255,10 @@ export default function Home() {
                     <option>Local Move</option><option>Long Distance</option><option>Commercial</option><option>Senior Moving</option><option>Storage Needed</option>
                   </select>
                 </div>
-                <div><label className="block text-sm mb-2 text-stone-300">Preferred Date</label><input type="date" className="w-full border border-stone-700 bg-[#0c0a09] px-4 py-3 rounded-lg focus:border-amber-500 focus:outline-none text-stone-100 border border-gray-300 " /></div>
+                <div><label className="block text-sm mb-2 text-stone-300">Preferred Date</label><input type="date" className="w-full border border-stone-700 bg-[#0c0a09] px-4 py-3 rounded-lg focus:border-amber-500 focus:outline-none text-stone-100 border border-gray-300  border-2 border-current/20" /></div>
               </div>
               <div><label className="block text-sm mb-2 text-stone-300">Additional Details</label><textarea rows={3} placeholder="Describe your move: number of rooms, large items, special requirements..." className="w-full border border-stone-700 bg-transparent px-4 py-3 rounded-lg placeholder:text-stone-400 focus:border-amber-500 focus:outline-none resize-none border border-gray-300 "></textarea></div>
-              <button type="submit" disabled={submitted} className="btn w-full bg-amber-600 text-white py-4 rounded-lg font-black uppercase hover:bg-amber-500 transition-colors disabled:opacity-80">{submitted ? '✓ Quote Sent! We\'ll call within 2 hours' : 'Get Free Quote'}</button>
+              <button style={{ cursor: "pointer" }} type="submit" disabled={submitted} className="btn w-full bg-amber-600 text-white py-4 rounded-lg font-black uppercase hover:bg-amber-500 transition-colors disabled:opacity-80">{submitted ? '✓ Quote Sent! We\'ll call within 2 hours' : 'Get Free Quote'}</button>
             </form>
           </div>
         </section>
