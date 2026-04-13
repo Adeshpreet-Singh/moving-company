@@ -79,7 +79,7 @@ export default function Home() {
             <button onClick={() => scrollTo('pricing')} className="text-base text-stone-300 hover:text-amber-500">Pricing</button>
             <button onClick={() => scrollTo('testimonials')} className="text-base text-stone-300 hover:text-amber-500">Reviews</button>
             <button onClick={() => scrollTo('faq')} className="text-base text-stone-300 hover:text-amber-500">FAQ</button>
-            <button onClick={() => scrollTo('contact')} className="bg-amber-600 text-white px-5 py-2.5 text-sm font-bold rounded-full hover:bg-amber-500">Get Quote</button>
+            <button onClick={() => scrollTo('contact')} className="bg-amber-600 text-white px-5 py-2.5 text-base font-bold rounded-full hover:bg-amber-500">Get Quote</button>
           </div>
         </div>
       </nav>
