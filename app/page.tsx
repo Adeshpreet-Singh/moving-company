@@ -115,7 +115,7 @@ export default function SwiftMovePage() {
       {/* HERO — Full-width image with overlay text */}
       <section className="hero" style={{ position: "relative", minHeight: "85vh", display: "flex", alignItems: "center" }}>
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1600&h=900&fit=crop" alt="Moving day" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.25 }} />
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1600&h=900&fit=crop" alt="Moving day" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: '0.9' }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 100%)" }}></div>
         </div>
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "80px 24px", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 60, alignItems: "center" }}>
@@ -219,7 +219,7 @@ export default function SwiftMovePage() {
           <div className="stagger-children" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
             {PROCESS_STEPS.map((step, i) => (
               <div key={i} style={{ textAlign: "center", position: "relative" }}>
-                {i < 3 && <div style={{ position: "absolute", top: 32, right: -12, width: 24, height: 2, background: "var(--neon)", opacity: 0.3 }}></div>}
+                {i < 3 && <div style={{ position: "absolute", top: 32, right: -12, width: 24, height: 2, background: "var(--neon)", opacity: '0.9' }}></div>}
                 <div style={{ width: 64, height: 64, borderRadius: "50%", border: "2px solid var(--neon)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", background: "rgba(255,107,53,0.06)" }}>
                   <span className="neon-text heading" style={{ fontSize: "1.2rem" }}>{step.step}</span>
                 </div>
