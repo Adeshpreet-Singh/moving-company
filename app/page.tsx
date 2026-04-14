@@ -1,419 +1,396 @@
-'use client';
-import { useState } from 'react';
+"use client";
+import { useEffect, useRef, useState } from "react";
 
-export default function Home() {
-  const [submitted, setSubmitted] = useState(false);
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+/* ──── SWIFTMOVE — Moving Company Landing Page ──── */
+/* Layout: Horizontal scroll sections + split hero + bento grid services */
 
-  const services = [
-    {
-      name: 'Local Moving',
-      desc: 'Same-city residential moves handled with precision. Whether you are relocating from a studio apartment or a five-bedroom house, our experienced crew packs, loads, transports, and unloads every item with meticulous care. We know every neighborhood, shortcut, and parking situation, which means faster timelines and zero headaches for you.',
-      icon: '🏠',
-      price: 'From $149/hr',
-    },
-    {
-      name: 'Long Distance',
-      desc: 'Interstate and cross-country relocations coordinated from start to finish. Your dedicated move manager plans routes, schedules delivery windows, and provides real-time tracking so you always know where your belongings are. Full-value protection plans are available for complete peace of mind on every long haul.',
-      icon: '🚛',
-      price: 'Custom Quote',
-    },
-    {
-      name: 'Commercial Moving',
-      desc: 'Office and business relocations executed with minimal downtime. We work evenings and weekends to keep your operations running. IT equipment is labeled, packed in anti-static materials, and reconnected at the destination. Furniture disassembly and reassembly is always included in the base price.',
-      icon: '🏢',
-      price: 'Custom Quote',
-    },
-    {
-      name: 'Packing Services',
-      desc: 'Full and partial packing using commercial-grade materials. Our trained packers wrap fragile items in bubble cushion, reinforce box bottoms, and label everything by room and priority. Custom crating is available for artwork, mirrors, and electronics. You can also order a packing-only visit before moving day.',
-      icon: '📦',
-      price: 'From $25/box',
-    },
-    {
-      name: 'Storage Solutions',
-      desc: 'Climate-controlled warehouse units for short-term or long-term storage. Every unit is monitored 24/7 with security cameras, smoke detection, and humidity regulation. Your items are palletized and inventoried so you can request delivery of specific pieces at any time without visiting the facility.',
-      icon: '🏗️',
-      price: 'From $99/mo',
-    },
-    {
-      name: 'Specialty Items',
-      desc: 'Pianos, fine art, antiques, wine collections, and oversized items require specialized handling. We use custom padding, hydraulic lift gates, and rigging equipment to move your most valuable possessions safely. White-glove service includes placement exactly where you want it in the new space.',
-      icon: '🎹',
-      price: 'From $199',
-    },
-  ];
+const MOVING_STATS = [
+  { num: "12K+", label: "Moves Completed" },
+  { num: "98%", label: "On-Time Rate" },
+  { num: "4.9★", label: "Average Rating" },
+  { num: "50+", label: "Cities Covered" },
+];
 
-  const steps = [
-    {
-      num: '01',
-      title: 'Get Your Free Quote',
-      desc: 'Fill out our quick online form or call us directly. Tell us what you are moving, where you are going, and your preferred date. We send a transparent, binding estimate within two hours — no obligation, no pressure.',
-    },
-    {
-      num: '02',
-      title: 'Plan Every Detail',
-      desc: 'Your dedicated move coordinator schedules a walkthrough, confirms inventory, and addresses any special requirements. We reserve the crew, truck, and supplies so everything is ready before the first box is lifted.',
-    },
-    {
-      num: '03',
-      title: 'Moving Day Done Right',
-      desc: 'Our uniformed crew arrives on time with padding, dollies, and a clean truck. We load carefully, drive safely, and keep you updated throughout transit. At the destination, we unload, place furniture, and complete a final walkthrough with you.',
-    },
-  ];
+const MOVING_SERVICES = [
+  {
+    title: "Residential Moving",
+    desc: "From studio apartments to sprawling estates, our residential moving teams handle every item with white-glove care. We disassemble furniture, wrap everything in protective materials, and reassemble at your new home. Packing supplies included in every quote.",
+    img: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&h=400&fit=crop",
+    price: "Starting at $299",
+  },
+  {
+    title: "Commercial Relocation",
+    desc: "Minimize downtime with our commercial moving services. We work nights and weekends to relocate offices, retail spaces, and warehouses without disrupting your business operations. IT equipment handling and document security protocols included.",
+    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
+    price: "Custom Quote",
+  },
+  {
+    title: "Long-Distance Moves",
+    desc: "Cross-state or cross-country, SwiftMove delivers your belongings safely with real-time GPS tracking on every shipment. Dedicated trucks mean your items are never mixed with other customers' possessions. Delivery windows guaranteed.",
+    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
+    price: "Starting at $899",
+  },
+  {
+    title: "Packing & Unpacking",
+    desc: "Our full-service packing team uses professional-grade materials to protect every item in your home. From custom crating for artwork to wardrobe boxes for your closet, we handle it all. Unpacking and setup at destination available.",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",
+    price: "Starting at $149",
+  },
+  {
+    title: "Storage Solutions",
+    desc: "Need temporary storage between moves? Our climate-controlled, 24/7 monitored facilities keep your belongings safe for days, weeks, or months. Free pickup from storage to your new address when you are ready.",
+    img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+    price: "$89/month",
+  },
+  {
+    title: "Specialty Items",
+    desc: "Pianos, pool tables, safes, artwork, and antiques require specialized handling. Our trained crews use custom rigging equipment and climate-controlled transport to ensure your most valuable items arrive in perfect condition.",
+    img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop",
+    price: "Custom Quote",
+  },
+];
 
-  const pricingPlans = [
-    {
-      name: 'Essential',
-      subtitle: 'Studio & 1-Bedroom',
-      price: '$349',
-      range: '– $599',
-      features: ['2-person crew', 'Basic packing supplies', 'Loading & unloading', 'Local moves under 25 mi', 'Standard insurance included'],
-      popular: false,
-    },
-    {
-      name: 'Standard',
-      subtitle: '2–3 Bedroom Home',
-      price: '$699',
-      range: '– $1,199',
-      features: ['3-person crew', 'Full packing supplies', 'Furniture disassembly/reassembly', 'Local moves under 50 mi', 'Full-value protection available'],
-      popular: true,
-    },
-    {
-      name: 'Premium',
-      subtitle: '4+ Bedroom or Office',
-      price: '$1,299',
-      range: '– $2,199',
-      features: ['4+ person crew', 'Premium packing & crating', 'Specialty item handling', 'Unlimited local distance', 'Full-value protection included'],
-      popular: false,
-    },
-  ];
+const PROCESS_STEPS = [
+  { step: "01", title: "Book Online", desc: "Fill out our simple form with your moving details. Get an instant ballpark estimate and choose your preferred date." },
+  { step: "02", title: "Virtual Survey", desc: "A moving consultant video-calls you to walk through your home and provide a binding quote. No surprises on moving day." },
+  { step: "03", title: "Moving Day", desc: "Our uniformed crew arrives on time with a fully stocked truck. We wrap, load, transport, and unload with care." },
+  { step: "04", title: "Settle In", desc: "We reassemble furniture, place boxes in the right rooms, and remove all packing debris. You just enjoy your new home." },
+];
 
-  const testimonials = [
-    {
-      name: 'Maria S.',
-      location: 'Lincoln Park, Chicago',
-      text: 'SwiftMove handled our three-bedroom move in under five hours. Every piece of furniture arrived in perfect condition. The crew was friendly, fast, and incredibly careful with our grandmother\'s antique hutch. We could not be happier with the service.',
-    },
-    {
-      name: 'James R.',
-      location: 'Naperville, IL',
-      text: 'We moved from Chicago to Denver and SwiftMove made a stressful cross-country move feel easy. The coordinator kept us informed every step of the way, and delivery arrived exactly on the promised date. Best moving experience we have ever had.',
-    },
-    {
-      name: 'Tanya L.',
-      location: 'The Loop, Chicago',
-      text: 'Our office relocation had zero downtime thanks to SwiftMove. They moved 40 workstations over a weekend, and every cable was labeled and reconnected. Monday morning the team walked in and started working like nothing changed. Truly professional.',
-    },
-  ];
+const TESTIMONIALS = [
+  { text: "SwiftMove handled our 4-bedroom move across state lines flawlessly. Everything arrived on time and nothing was damaged. The crew was incredibly professional and fast.", author: "Rachel & Tom P.", role: "Long-Distance Move", rating: 5 },
+  { text: "We relocated our 200-person office over a single weekend. SwiftMove worked through the night and by Monday morning, every desk was set up and every computer was running.", author: "James K.", role: "Corporate Client", rating: 5 },
+  { text: "I have moved 8 times in 10 years for work. SwiftMove is hands down the best company I have ever used. Their pricing is transparent and their crews genuinely care.", author: "Maria L.", role: "Frequent Mover", rating: 5 },
+];
+
+const BEFORE_AFTER = [
+  { before: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop", after: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=400&h=300&fit=crop", label: "Living Room" },
+  { before: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=400&h=300&fit=crop", after: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop", label: "Bedroom" },
+  { before: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop", after: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop", label: "Office" },
+];
+
+export default function SwiftMovePage() {
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".reveal, .reveal-left, .reveal-scale, .stagger-children").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const t = setInterval(() => setActiveTestimonial((p) => (p + 1) % TESTIMONIALS.length), 6000);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--dark-bg)', color: 'var(--text-primary)' }}>
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 text-white px-4 py-2 rounded z-[100] font-bold" style={{ background: 'var(--neon)' }}>Skip to main content</a>
-
+    <div>
       {/* Navigation */}
-      <nav className="nav-glass fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div>
-            <h1 className="heading text-xl font-bold" style={{ color: 'var(--neon)', letterSpacing: '0.15em' }}>SwiftMove</h1>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.7rem', letterSpacing: '0.25em', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Professional Moving Services</p>
+      <nav className="nav-glass" style={{ position: "sticky", top: 0, zIndex: 50 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontSize: 26 }}>🚚</span>
+            <span className="heading" style={{ fontSize: "1.2rem" }}>
+              SWIFT<span className="neon-text">MOVE</span>
+            </span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollTo('services')} className="text-sm uppercase tracking-widest transition-colors" style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-secondary)' }} onMouseOver={(e) => (e.target as HTMLElement).style.color = 'var(--neon)'} onMouseOut={(e) => (e.target as HTMLElement).style.color = 'var(--text-secondary)'}>Services</button>
-            <button onClick={() => scrollTo('process')} className="text-sm uppercase tracking-widest transition-colors" style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-secondary)' }} onMouseOver={(e) => (e.target as HTMLElement).style.color = 'var(--neon)'} onMouseOut={(e) => (e.target as HTMLElement).style.color = 'var(--text-secondary)'}>How It Works</button>
-            <button onClick={() => scrollTo('pricing')} className="text-sm uppercase tracking-widest transition-colors" style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-secondary)' }} onMouseOver={(e) => (e.target as HTMLElement).style.color = 'var(--neon)'} onMouseOut={(e) => (e.target as HTMLElement).style.color = 'var(--text-secondary)'}>Pricing</button>
-            <button onClick={() => scrollTo('testimonials')} className="text-sm uppercase tracking-widest transition-colors" style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-secondary)' }} onMouseOver={(e) => (e.target as HTMLElement).style.color = 'var(--neon)'} onMouseOut={(e) => (e.target as HTMLElement).style.color = 'var(--text-secondary)'}>Reviews</button>
-            <button onClick={() => scrollTo('quote')} className="btn">Get Free Quote</button>
+          <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
+            {["Services", "Process", "Gallery", "Testimonials", "Contact"].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} style={{ color: "var(--text-secondary)", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", transition: "color 0.3s" }}>
+                {item}
+              </a>
+            ))}
+            <a href="#contact" className="btn" style={{ fontSize: "0.7rem", padding: "10px 22px" }}>Get Quote</a>
           </div>
         </div>
       </nav>
 
-      <main id="main">
-        {/* Hero Section */}
-        <section className="hero relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="https://images.unsplash.com/photo-1600518139528-749d8e3e9395?w=800&q=80"
-              alt="Professional movers carrying boxes into a new home"
-              className="w-full h-full object-cover opacity-20"
-            />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.95) 100%)' }}></div>
-          </div>
-          <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-            <span className="badge">Licensed & Insured — Est. 2015</span>
-            <h2 className="heading text-5xl md:text-7xl lg:text-8xl mt-6 mb-6" style={{ lineHeight: 0.9 }}>
-              Your Move,<br />
-              <span style={{ color: 'var(--neon)' }}>Made Simple.</span>
-            </h2>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto mb-10" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}>
-              Professional moving with careful handling, transparent pricing, and on-time delivery guaranteed. From studio apartments to full office relocations, SwiftMove handles it all with care and precision. Over fifteen thousand successful moves and counting.
+      {/* HERO — Full-width image with overlay text */}
+      <section className="hero" style={{ position: "relative", minHeight: "85vh", display: "flex", alignItems: "center" }}>
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1600&h=900&fit=crop" alt="Moving day" style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.25 }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 100%)" }}></div>
+        </div>
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "80px 24px", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 60, alignItems: "center" }}>
+          <div>
+            <div className="badge" style={{ marginBottom: 20 }}>Top-Rated Moving Company 2024</div>
+            <h1 className="heading" style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)", marginBottom: 20, lineHeight: 1.02 }}>
+              WE MOVE YOUR<br />
+              <span className="gradient-text">LIFE FORWARD</span>
+            </h1>
+            <p style={{ fontSize: "1.1rem", color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: 32, maxWidth: 520 }}>
+              From your first box to your last piece of furniture, SwiftMove delivers a seamless moving experience. Transparent pricing, GPS-tracked shipments, and a 98% on-time delivery rate that speaks for itself.
             </p>
-            <div className="flex justify-center gap-4 flex-wrap">
-              <button onClick={() => scrollTo('quote')} className="btn cta-pulse">Get Your Free Quote</button>
-              <button onClick={() => scrollTo('services')} className="btn-outline">Explore Services</button>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+              <a href="#contact" className="btn cta-pulse">Get Free Estimate</a>
+              <a href="#process" className="btn-outline">How It Works</a>
+              <span style={{ color: "var(--text-muted)", fontSize: "0.8rem", marginLeft: 8 }}>No credit card required</span>
             </div>
           </div>
-        </section>
-
-        {/* Stats Bar */}
-        <section className="reveal py-10" style={{ borderTop: '1px solid var(--dark-border)', borderBottom: '1px solid var(--dark-border)' }}>
-          <div className="max-w-6xl mx-auto px-6 grid grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="stat-number">10+</div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '4px' }}>Years in Business</div>
-            </div>
-            <div>
-              <div className="stat-number">15K+</div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '4px' }}>Moves Completed</div>
-            </div>
-            <div>
-              <div className="stat-number">4.9★</div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '4px' }}>Average Rating</div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section id="services" className="reveal py-24" aria-labelledby="services-heading">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 id="services-heading" className="heading text-4xl md:text-5xl mb-4">Our Services</h2>
-              <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
-                Six specialized moving services designed to cover every residential and commercial need. Each service is backed by trained crews, quality materials, and our satisfaction guarantee.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((s, i) => (
-                <div key={i} className="card">
-                  <div className="text-4xl mb-4">{s.icon}</div>
-                  <h3 className="heading text-lg mb-2" style={{ letterSpacing: '0.08em' }}>{s.name}</h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: '12px' }}>{s.desc}</p>
-                  <div style={{ color: 'var(--neon)', fontFamily: 'var(--font-heading)', fontWeight: 700, letterSpacing: '0.05em' }}>{s.price}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works — 3-Step Process */}
-        <section id="process" className="reveal section-alt py-24" aria-labelledby="process-heading">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 id="process-heading" className="heading text-4xl md:text-5xl mb-4">How It Works</h2>
-              <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
-                Three simple steps from first call to fully settled in. We handle the logistics and the heavy lifting so you can focus on your new beginning.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-10">
-              {steps.map((s, i) => (
-                <div key={i} className="text-center relative">
-                  {i < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-[2px]" style={{ background: 'linear-gradient(90deg, rgba(255,107,53,0.4), transparent)' }}></div>
-                  )}
-                  <div className="mx-auto w-24 h-24 rounded-full flex items-center justify-center mb-6" style={{ background: 'rgba(255,107,53,0.1)', border: '2px solid rgba(255,107,53,0.3)' }}>
-                    <span className="heading text-4xl" style={{ color: 'var(--neon)' }}>{s.num}</span>
-                  </div>
-                  <h3 className="heading text-xl mb-3" style={{ letterSpacing: '0.08em' }}>{s.title}</h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: '340px', margin: '0 auto' }}>{s.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Image Showcase */}
-        <section className="reveal py-24" aria-hidden="true">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="img-hover rounded-lg overflow-hidden" style={{ height: '400px' }}>
-                <img
-                  src="https://images.unsplash.com/photo-1600518139528-749d8e3e9395?w=800&q=80"
-                  alt="Movers carefully loading furniture into a truck"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="img-hover rounded-lg overflow-hidden" style={{ height: '400px' }}>
-                <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80"
-                  alt="Beautiful new home ready for move-in"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section id="pricing" className="reveal py-24" aria-labelledby="pricing-heading">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 id="pricing-heading" className="heading text-4xl md:text-5xl mb-4">Transparent Pricing</h2>
-              <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
-                No hidden fees. No surprise charges. Choose the plan that fits your move, or request a custom quote for long-distance and commercial relocations. Every estimate is free and obligation-free.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {pricingPlans.map((plan, i) => (
-                <div key={i} className="card text-center relative" style={plan.popular ? { borderColor: 'rgba(255,107,53,0.5)' } : {}}>
-                  {plan.popular && (
-                    <div className="absolute top-0 left-0 right-0 text-center py-1.5 text-xs uppercase tracking-widest font-bold" style={{ background: 'var(--neon)', color: '#000', fontFamily: 'var(--font-heading)', borderRadius: '6px 6px 0 0' }}>
-                      Most Popular
-                    </div>
-                  )}
-                  <div className={plan.popular ? 'pt-8' : ''}>
-                    <h3 className="heading text-2xl mb-1" style={{ letterSpacing: '0.1em' }}>{plan.name}</h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '20px' }}>{plan.subtitle}</p>
-                    <div className="mb-6">
-                      <span className="heading text-5xl" style={{ color: 'var(--neon)' }}>{plan.price}</span>
-                      <span style={{ color: 'var(--text-muted)', fontSize: '1.2rem' }}>{plan.range}</span>
-                    </div>
-                    <ul className="space-y-3 mb-8 text-left" style={{ paddingLeft: '8px' }}>
-                      {plan.features.map((f, j) => (
-                        <li key={j} style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <span style={{ color: 'var(--neon)', fontWeight: 'bold', fontSize: '1rem' }}>✓</span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <button onClick={() => scrollTo('quote')} className={plan.popular ? 'btn w-full' : 'btn-outline w-full'} style={{ textAlign: 'center' }}>
-                      Get This Plan
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textAlign: 'center', marginTop: '24px' }}>
-              Prices are sample ranges for local moves. Long-distance and commercial pricing is based on weight, distance, and services. Request a free binding estimate for exact pricing.
-            </p>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section id="testimonials" className="reveal section-alt py-24" aria-labelledby="testimonials-heading">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 id="testimonials-heading" className="heading text-4xl md:text-5xl mb-4">What Our Customers Say</h2>
-              <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
-                Over fifteen thousand moves completed with a 4.9-star average rating. Here is what recent customers have to say about their SwiftMove experience.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((t, i) => (
-                <div key={i} className="card">
-                  <div className="flex gap-1 mb-4" style={{ color: 'var(--neon)' }}>
-                    {'★★★★★'.split('').map((s, j) => <span key={j} className="text-lg">{s}</span>)}
-                  </div>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', lineHeight: 1.8, marginBottom: '20px', fontStyle: 'italic' }}>
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                  <div>
-                    <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{t.name}</div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{t.location}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Free Quote Form Section */}
-        <section id="quote" className="reveal py-24" aria-labelledby="quote-heading">
-          <div className="max-w-2xl mx-auto px-6 text-center">
-            <h2 id="quote-heading" className="heading text-4xl md:text-5xl mb-4">Get a Free Quote</h2>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '40px' }}>
-              We respond within two hours. No obligation, no hidden fees. Fill out the form below and a dedicated move coordinator will reach out to finalize your personalized estimate.
-            </p>
-            <form
-              className="card text-left space-y-5"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSubmitted(true);
-                setTimeout(() => setSubmitted(false), 4000);
-              }}
-            >
-              <div className="grid grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Name</label>
-                  <input type="text" placeholder="Your full name" required />
-                </div>
-                <div>
-                  <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Phone</label>
-                  <input type="tel" placeholder="(555) 000-0000" required />
-                </div>
+          <div className="card reveal-scale" style={{ padding: "2rem" }}>
+            <h3 className="heading" style={{ fontSize: "1rem", marginBottom: 20, textAlign: "center" }}>Instant Estimate</h3>
+            <form style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              <div>
+                <label style={{ display: "block", marginBottom: 4, fontSize: "0.75rem", color: "var(--text-muted)" }}>Moving From</label>
+                <input type="text" placeholder="City or ZIP code" />
               </div>
               <div>
-                <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Email</label>
-                <input type="email" placeholder="you@example.com" required />
-              </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Moving From</label>
-                  <input type="text" placeholder="City, State" required />
-                </div>
-                <div>
-                  <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Moving To</label>
-                  <input type="text" placeholder="City, State" required />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Move Type</label>
-                  <select>
-                    <option>Local Move</option>
-                    <option>Long Distance</option>
-                    <option>Commercial</option>
-                    <option>Senior Moving</option>
-                    <option>Storage Needed</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Preferred Date</label>
-                  <input type="date" />
-                </div>
+                <label style={{ display: "block", marginBottom: 4, fontSize: "0.75rem", color: "var(--text-muted)" }}>Moving To</label>
+                <input type="text" placeholder="City or ZIP code" />
               </div>
               <div>
-                <label className="block text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>Additional Details</label>
-                <textarea rows={3} placeholder="Describe your move: number of rooms, large items, special requirements..." style={{ resize: 'none' }}></textarea>
+                <label style={{ display: "block", marginBottom: 4, fontSize: "0.75rem", color: "var(--text-muted)" }}>Home Size</label>
+                <select defaultValue="">
+                  <option value="" disabled>Select size</option>
+                  <option>Studio / 1 Bedroom</option>
+                  <option>2 Bedrooms</option>
+                  <option>3 Bedrooms</option>
+                  <option>4+ Bedrooms</option>
+                  <option>Office / Commercial</option>
+                </select>
               </div>
-              <button type="submit" disabled={submitted} className="btn w-full" style={{ textAlign: 'center', opacity: submitted ? 0.8 : 1 }}>
-                {submitted ? '✓ Quote Sent! We\'ll call within 2 hours' : 'Get Your Free Quote'}
-              </button>
+              <div>
+                <label style={{ display: "block", marginBottom: 4, fontSize: "0.75rem", color: "var(--text-muted)" }}>Moving Date</label>
+                <input type="text" placeholder="Preferred date" />
+              </div>
+              <button type="submit" className="btn" style={{ width: "100%", textAlign: "center", marginTop: 4 }}>Calculate Estimate</button>
             </form>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* Stats Bar */}
+      <div style={{ background: "var(--dark-surface)", borderTop: "1px solid var(--dark-border)", borderBottom: "1px solid var(--dark-border)", padding: "32px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, textAlign: "center" }}>
+          {MOVING_STATS.map((s, i) => (
+            <div key={i} className="reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+              <div className="stat-number">{s.num}</div>
+              <div style={{ color: "var(--text-secondary)", fontSize: "0.8rem", marginTop: 6 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Services — Bento Grid Layout */}
+      <section id="services" style={{ padding: "100px 24px", maxWidth: 1200, margin: "0 auto" }}>
+        <div className="reveal" style={{ textAlign: "center", marginBottom: 60 }}>
+          <div className="badge" style={{ marginBottom: 16 }}>Our Services</div>
+          <h2 className="heading" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
+            Moving Solutions For <span className="neon-text">Every Need</span>
+          </h2>
+          <p style={{ color: "var(--text-secondary)", maxWidth: 600, margin: "16px auto 0" }}>
+            Whether you are moving across the street or across the country, we have the expertise, equipment, and dedication to get you there safely.
+          </p>
+        </div>
+        <div className="stagger-children" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          {MOVING_SERVICES.map((svc, i) => (
+            <div key={i} className="card" style={{ padding: 0, overflow: "hidden" }}>
+              <div className="img-hover" style={{ height: 200 }}>
+                <img src={svc.img} alt={svc.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <div style={{ padding: "1.5rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+                  <h3 className="heading" style={{ fontSize: "1.1rem" }}>{svc.title}</h3>
+                  <span className="neon-text" style={{ fontSize: "0.8rem", fontWeight: 600 }}>{svc.price}</span>
+                </div>
+                <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", lineHeight: 1.7 }}>{svc.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Process Steps — Horizontal Timeline */}
+      <section id="process" className="section-alt" style={{ padding: "100px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="reveal" style={{ textAlign: "center", marginBottom: 60 }}>
+            <div className="badge" style={{ marginBottom: 16 }}>How It Works</div>
+            <h2 className="heading" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
+              Four Steps To <span className="neon-text">Stress-Free</span> Moving
+            </h2>
+          </div>
+          <div className="stagger-children" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
+            {PROCESS_STEPS.map((step, i) => (
+              <div key={i} style={{ textAlign: "center", position: "relative" }}>
+                {i < 3 && <div style={{ position: "absolute", top: 32, right: -12, width: 24, height: 2, background: "var(--neon)", opacity: 0.3 }}></div>}
+                <div style={{ width: 64, height: 64, borderRadius: "50%", border: "2px solid var(--neon)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", background: "rgba(255,107,53,0.06)" }}>
+                  <span className="neon-text heading" style={{ fontSize: "1.2rem" }}>{step.step}</span>
+                </div>
+                <h3 className="heading" style={{ fontSize: "1.1rem", marginBottom: 10 }}>{step.title}</h3>
+                <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", lineHeight: 1.7 }}>{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Before/After Gallery */}
+      <section id="gallery" style={{ padding: "100px 24px", maxWidth: 1200, margin: "0 auto" }}>
+        <div className="reveal" style={{ textAlign: "center", marginBottom: 48 }}>
+          <div className="badge" style={{ marginBottom: 16 }}>Our Work</div>
+          <h2 className="heading" style={{ fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)" }}>
+            Before &amp; <span className="neon-text">After</span> Moves
+          </h2>
+        </div>
+        <div className="stagger-children" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          {BEFORE_AFTER.map((item, i) => (
+            <div key={i} className="card" style={{ padding: 0, overflow: "hidden" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", height: 180 }}>
+                <div style={{ position: "relative" }}>
+                  <img src={item.before} alt="Before" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <span style={{ position: "absolute", bottom: 8, left: 8, background: "rgba(0,0,0,0.7)", padding: "2px 10px", fontSize: "0.65rem", borderRadius: 2, letterSpacing: "0.1em", textTransform: "uppercase" }}>Before</span>
+                </div>
+                <div style={{ position: "relative" }}>
+                  <img src={item.after} alt="After" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <span style={{ position: "absolute", bottom: 8, left: 8, background: "rgba(255,107,53,0.9)", color: "#000", padding: "2px 10px", fontSize: "0.65rem", borderRadius: 2, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 700 }}>After</span>
+                </div>
+              </div>
+              <div style={{ padding: "1rem", textAlign: "center" }}>
+                <span style={{ color: "var(--text-secondary)", fontSize: "0.85rem" }}>{item.label} Move</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="section-alt" style={{ padding: "100px 24px" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <div className="reveal" style={{ textAlign: "center", marginBottom: 48 }}>
+            <div className="badge" style={{ marginBottom: 16 }}>Reviews</div>
+            <h2 className="heading" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}>
+              Happy <span className="neon-text">Customers</span>
+            </h2>
+          </div>
+          <div className="card reveal" style={{ textAlign: "center", padding: "3rem", minHeight: 220 }}>
+            <div style={{ fontSize: "1.05rem", color: "var(--text-secondary)", lineHeight: 1.8, fontStyle: "italic", marginBottom: 24 }}>
+              &ldquo;{TESTIMONIALS[activeTestimonial].text}&rdquo;
+            </div>
+            <div style={{ fontSize: "0.85rem", color: "var(--neon)", fontWeight: 600 }}>
+              {"★".repeat(TESTIMONIALS[activeTestimonial].rating)}
+            </div>
+            <div style={{ marginTop: 8 }}>
+              <strong>{TESTIMONIALS[activeTestimonial].author}</strong>
+              <div style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>{TESTIMONIALS[activeTestimonial].role}</div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 16 }}>
+              {TESTIMONIALS.map((_, i) => (
+                <button key={i} onClick={() => setActiveTestimonial(i)} style={{ width: 10, height: 10, borderRadius: "50%", border: "none", background: i === activeTestimonial ? "var(--neon)" : "var(--dark-border)", cursor: "pointer" }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section style={{ padding: "80px 24px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(255,107,53,0.08) 0%, transparent 70%)", pointerEvents: "none" }}></div>
+        <div className="reveal" style={{ position: "relative", zIndex: 2 }}>
+          <h2 className="heading" style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", marginBottom: 16 }}>
+            Ready To <span className="gradient-text">Make Your Move?</span>
+          </h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
+            Join 12,000+ happy customers who trusted SwiftMove with their most important possessions. Get your free quote in 60 seconds.
+          </p>
+          <a href="#contact" className="btn cta-pulse" style={{ fontSize: "0.9rem", padding: "16px 48px" }}>Start Your Free Quote</a>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="section-alt" style={{ padding: "100px 24px" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <div className="reveal" style={{ textAlign: "center", marginBottom: 48 }}>
+            <div className="badge" style={{ marginBottom: 16 }}>Contact Us</div>
+            <h2 className="heading" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)" }}>
+              Request Your <span className="neon-text">Moving Quote</span>
+            </h2>
+          </div>
+          <div className="card reveal" style={{ padding: "2.5rem" }}>
+            <form style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+              <div>
+                <label style={{ display: "block", marginBottom: 6, fontSize: "0.78rem", color: "var(--text-muted)" }}>Full Name</label>
+                <input type="text" placeholder="Jane Doe" />
+              </div>
+              <div>
+                <label style={{ display: "block", marginBottom: 6, fontSize: "0.78rem", color: "var(--text-muted)" }}>Phone</label>
+                <input type="text" placeholder="(555) 987-6543" />
+              </div>
+              <div>
+                <label style={{ display: "block", marginBottom: 6, fontSize: "0.78rem", color: "var(--text-muted)" }}>Email</label>
+                <input type="text" placeholder="jane@example.com" />
+              </div>
+              <div>
+                <label style={{ display: "block", marginBottom: 6, fontSize: "0.78rem", color: "var(--text-muted)" }}>Move Type</label>
+                <select defaultValue="">
+                  <option value="" disabled>Select type</option>
+                  <option>Residential - Local</option>
+                  <option>Residential - Long Distance</option>
+                  <option>Commercial</option>
+                  <option>Packing Only</option>
+                  <option>Storage</option>
+                </select>
+              </div>
+              <div>
+                <label style={{ display: "block", marginBottom: 6, fontSize: "0.78rem", color: "var(--text-muted)" }}>Origin Address</label>
+                <input type="text" placeholder="123 Current St, City" />
+              </div>
+              <div>
+                <label style={{ display: "block", marginBottom: 6, fontSize: "0.78rem", color: "var(--text-muted)" }}>Destination Address</label>
+                <input type="text" placeholder="456 New Ave, City" />
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <label style={{ display: "block", marginBottom: 6, fontSize: "0.78rem", color: "var(--text-muted)" }}>Additional Details</label>
+                <textarea rows={4} placeholder="Tell us about any special items, timing constraints, or other requirements..." />
+              </div>
+              <div style={{ gridColumn: "1 / -1", textAlign: "center" }}>
+                <button type="submit" className="btn cta-pulse">Get My Free Quote</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer style={{ borderTop: '1px solid var(--dark-border)', padding: '40px 0' }}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+      <footer className="footer-glow" style={{ padding: "60px 24px 32px", background: "var(--dark-surface)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, marginBottom: 40 }}>
             <div>
-              <h3 className="heading text-lg mb-3" style={{ color: 'var(--neon)', letterSpacing: '0.15em' }}>SwiftMove</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', lineHeight: 1.7 }}>
-                Professional moving and relocation services. Licensed, insured, and committed to making every move stress-free. Serving Chicago and nationwide since 2015.
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+                <span style={{ fontSize: 24 }}>🚚</span>
+                <span className="heading" style={{ fontSize: "0.95rem" }}>SWIFTMOVE</span>
+              </div>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", lineHeight: 1.7 }}>
+                Professional moving services with transparent pricing and guaranteed delivery windows. Licensed, insured, DOT certified.
               </p>
             </div>
             <div>
-              <h4 className="heading text-sm mb-3" style={{ letterSpacing: '0.15em' }}>Quick Links</h4>
-              <div className="space-y-2">
-                <button onClick={() => scrollTo('services')} className="block text-sm transition-colors" style={{ color: 'var(--text-muted)' }} onMouseOver={(e) => (e.target as HTMLElement).style.color = 'var(--neon)'} onMouseOut={(e) => (e.target as HTMLElement).style.color = 'var(--text-muted)'}>Services</button>
-                <button onClick={() => scrollTo('pricing')} className="block text-sm transition-colors" style={{ color: 'var(--text-muted)' }} onMouseOver={(e) => (e.target as HTMLElement).style.color = 'var(--neon)'} onMouseOut={(e) => (e.target as HTMLElement).style.color = 'var(--text-muted)'}>Pricing</button>
-                <button onClick={() => scrollTo('quote')} className="block text-sm transition-colors" style={{ color: 'var(--text-muted)' }} onMouseOver={(e) => (e.target as HTMLElement).style.color = 'var(--neon)'} onMouseOut={(e) => (e.target as HTMLElement).style.color = 'var(--text-muted)'}>Get a Quote</button>
-              </div>
+              <h4 className="heading" style={{ fontSize: "0.8rem", marginBottom: 16 }}>Services</h4>
+              {["Residential", "Commercial", "Long-Distance", "Packing"].map((s) => (
+                <a key={s} href="#services" style={{ display: "block", color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: 8, textDecoration: "none" }}>{s}</a>
+              ))}
             </div>
             <div>
-              <h4 className="heading text-sm mb-3" style={{ letterSpacing: '0.15em' }}>Contact</h4>
-              <div className="space-y-2" style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-                <p>📞 (312) 555-0192</p>
-                <p>✉️ hello@swiftmove.com</p>
-                <p>📍 Chicago, IL 60601</p>
-              </div>
+              <h4 className="heading" style={{ fontSize: "0.8rem", marginBottom: 16 }}>Company</h4>
+              {["About", "Careers", "Blog", "Insurance Info"].map((s) => (
+                <a key={s} href="#" style={{ display: "block", color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: 8, textDecoration: "none" }}>{s}</a>
+              ))}
+            </div>
+            <div>
+              <h4 className="heading" style={{ fontSize: "0.8rem", marginBottom: 16 }}>Get In Touch</h4>
+              <a href="tel:+18005559876" className="neon-text" style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", textDecoration: "none" }}>(800) 555-9876</a>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.8rem", marginTop: 8 }}>Mon-Sat 7AM - 9PM</p>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>hello@swiftmove.com</p>
             </div>
           </div>
-          <div className="text-center pt-6" style={{ borderTop: '1px solid var(--dark-border)' }}>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
-              &copy; {new Date().getFullYear()} SwiftMove. Chicago, IL. Licensed USDOT Carrier. All rights reserved.
-            </p>
+          <div style={{ borderTop: "1px solid var(--dark-border)", paddingTop: 24, textAlign: "center", color: "var(--text-muted)", fontSize: "0.75rem" }}>
+            © 2026 SwiftMove Inc. All rights reserved. USDOT #1234567 | MC #987654
           </div>
         </div>
       </footer>
