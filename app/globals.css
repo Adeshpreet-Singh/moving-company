@@ -1,8 +1,9 @@
 /* SwiftMove — Professional Moving Company Design System */
 /* Typography: Anton (headings) + Inter (body) */
 /* Colors: Dark #0a0a0a + Hot Orange #ff6b35 */
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
 
 /* ========================= */
 /* CSS CUSTOM PROPERTIES     */
@@ -17,8 +18,8 @@
   --dark-card: #141414;
   --dark-border: #1e1e1e;
   --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --text-muted: #555555;
+  --text-secondary: #b8b8b8;
+  --text-muted: #888888;
   --gradient-neon: linear-gradient(135deg, var(--neon), var(--neon-dark));
   --gradient-radial: radial-gradient(circle at center, rgba(255, 107, 53, 0.12) 0%, transparent 70%);
   --font-heading: 'Anton', sans-serif;
@@ -468,7 +469,6 @@ select {
     font-size: 0.8rem;
   }
 }
-
 
 /* ===== FINAL 10/10 POLISH ===== */
 
