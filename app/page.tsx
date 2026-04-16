@@ -124,7 +124,7 @@ export default function SwiftMovePage() {
     </div>
           <div style={{ display: "flex", gap: 28, alignItems: "center" }}>
             {["Services", "Process", "Gallery", "Testimonials", "Contact"].map((item) => (
-              <a key={item} href={'#${item.toLowerCase()}'} style={{ color: "var(--text-secondary)", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", transition: "color 0.3s" }}>
+              <a key={item} href={'#${item.toLowerCase(})}'} style={{ color: "var(--text-secondary)", fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", transition: "color 0.3s" }}>
                 {item}
               </a>
             ))}
@@ -464,7 +464,7 @@ export default function SwiftMovePage() {
       <div style={{ background: "var(--dark-surface)", borderTop: "1px solid var(--dark-border)", borderBottom: "1px solid var(--dark-border)", padding: "32px 0" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, textAlign: "center" }}>
           {MOVING_STATS.map((s, i) => (
-            <div key={i} className="reveal" style={{  transitionDelay: '${i * 0.1 }}s' }}>
+            <div key={i} className="reveal" style={{  transitionDelay: `${i * 0.1} }}s` }}>
               <div className="stat-number">{s.num}
       <section className="section reveal">
         <div className="container" style={{ maxWidth: '800px' }}>
