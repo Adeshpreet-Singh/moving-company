@@ -107,7 +107,7 @@ export default function SwiftMovePage() {
                 {item}
               </a>
             ))}
-            <a href="#contact" className="btn" style={{ fontSize: "0.7rem", padding: "10px 22px" }}>Get Quote</a>
+            <a href="#contact" className="project-btn" style={{ fontSize: "0.7rem", padding: "10px 22px" }}>Get Quote</a>
           </div>
         </div>
       </nav>
@@ -129,8 +129,8 @@ export default function SwiftMovePage() {
               From your first box to your last piece of furniture, SwiftMove delivers a seamless moving experience. Transparent pricing, GPS-tracked shipments, and a 98% on-time delivery rate that speaks for itself.
             </p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
-              <a href="#contact" className="btn cta-pulse">Get Free Estimate</a>
-              <a href="#process" className="btn-outline">How It Works</a>
+              <a href="#contact" className="project-btn cta-pulse">Get Free Estimate</a>
+              <a href="#process" className="project-btn-outline">How It Works</a>
               <span style={{ color: "var(--text-muted)", fontSize: "0.8rem", marginLeft: 8 }}>No credit card required</span>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function SwiftMovePage() {
                 <label style={{ display: "block", marginBottom: 4, fontSize: "0.75rem", color: "var(--text-muted)" }}>Moving Date</label>
                 <input type="text" placeholder="Preferred date" />
               </div>
-              <button type="submit" className="btn" style={{ width: "100%", textAlign: "center", marginTop: 4 }}>Calculate Estimate</button>
+              <button type="submit" className="project-btn" style={{ width: "100%", textAlign: "center", marginTop: 4 }}>Calculate Estimate</button>
             </form>
           </div>
         </div>
@@ -299,7 +299,7 @@ export default function SwiftMovePage() {
           <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
             Join 12,000+ happy customers who trusted SwiftMove with their most important possessions. Get your free quote in 60 seconds.
           </p>
-          <a href="#contact" className="btn cta-pulse" style={{ fontSize: "0.9rem", padding: "16px 48px" }}>Start Your Free Quote</a>
+          <a href="#contact" className="project-btn cta-pulse" style={{ fontSize: "0.9rem", padding: "16px 48px" }}>Start Your Free Quote</a>
         </div>
       </section>
 
@@ -350,7 +350,7 @@ export default function SwiftMovePage() {
                 <textarea rows={4} placeholder="Tell us about any special items, timing constraints, or other requirements..." />
               </div>
               <div style={{ gridColumn: "1 / -1", textAlign: "center" }}>
-                <button type="submit" className="btn cta-pulse">Get My Free Quote</button>
+                <button type="submit" className="project-btn cta-pulse">Get My Free Quote</button>
               </div>
             </form>
           </div>
