@@ -451,6 +451,70 @@ select {
   }
 }
 
+/* ========================= */
+/* GLASS MORPHISM            */
+/* ========================= */
+.glass {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 107, 53, 0.1);
+  border-radius: 16px;
+}
+
+/* ========================= */
+/* NEON GLOW                 */
+/* ========================= */
+.neon-glow {
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.3), 0 0 30px rgba(255, 107, 53, 0.1);
+}
+
+.neon-text {
+  color: var(--neon);
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.4), 0 0 40px rgba(255, 107, 53, 0.15);
+}
+
+/* ========================= */
+/* GRID BACKGROUND           */
+/* ========================= */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 107, 53, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 53, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ========================= */
+/* ANIMATIONS                */
+/* ========================= */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+
+/* ========================= */
+/* TEXT COLOR UTILITIES       */
+/* ========================= */
+.text-neon { color: var(--neon); }
+.text-slate-text { color: #b8b8b8; }
+.text-white-soft { color: #e0e0e0; }
+.text-amber { color: #f59e0b; }
+.bg-neon\/10 { background-color: rgba(255, 107, 53, 0.1); }
+.bg-neon\/20 { background-color: rgba(255, 107, 53, 0.2); }
+.bg-neon\/5 { background-color: rgba(255, 107, 53, 0.05); }
+.bg-green-500\/10 { background-color: rgba(34, 197, 94, 0.1); }
+.text-green-500 { color: #22c55e; }
+.text-green-400 { color: #4ade80; }
+.text-red-400 { color: #f87171; }
+
 /* ===== FINAL 10/10 POLISH ===== */
 
 /* CONTRAST FIX - ensure ALL body text meets WCAG AAA (7:1 ratio) */
