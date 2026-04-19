@@ -89,7 +89,7 @@ export default function Home() {
  <div className="w-10 h-10 bg-neon/20 rounded-xl flex items-center justify-center text-neon text-xl neon-glow" aria-hidden="true">🚚</div>
  <div>
  <h1 className="text-lg font-bold text-white">SwiftMove</h1>
- <p>MOVING COMPANY</p>
+              <p className="text-xs text-slate-text tracking-widest uppercase">Moving Company</p>
  </div>
  </div>
  <div className="hidden md:flex items-center gap-8">
