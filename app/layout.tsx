@@ -2,31 +2,31 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SwiftMove | Professional Moving & Relocation Services",
-  description: "SwiftMove - Full-service residential and commercial moving. Licensed movers, secure storage, and professional packing services. Free quotes available.",
-  keywords: "moving company, movers, residential moving, commercial relocation, packing services, storage, long distance moving",
-  authors: [{ name: "SwiftMove" }],
+  title: "Meridian Moving Co. | Premium Relocation Services",
+  description: "Meridian Moving Co. — White-glove residential and commercial relocation. Licensed movers, climate storage, and custom packing. Chicago's premier moving company.",
+  keywords: "moving company, premium movers, residential moving, commercial relocation, packing services, storage, long distance moving, Chicago movers",
+  authors: [{ name: "Meridian Moving Co." }],
   openGraph: {
-    title: "SwiftMove | Professional Moving & Relocation Services",
-    description: "Full-service residential and commercial moving. Licensed movers, secure storage, and professional packing services.",
+    title: "Meridian Moving Co. | Premium Relocation Services",
+    description: "White-glove residential and commercial relocation. Chicago's premier moving company since 2010.",
     type: "website",
-    url: "https://swiftmove.com",
-    siteName: "SwiftMove",
+    url: "https://meridianmoving.com",
+    siteName: "Meridian Moving Co.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=85",
         width: 1200,
         height: 630,
-        alt: "SwiftMove Professional Moving Company",
+        alt: "Meridian Moving Co. — Premium Relocation Services",
       },
     ],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SwiftMove | Professional Moving & Relocation Services",
-    description: "Full-service residential and commercial moving. Licensed movers, secure storage, and professional packing services.",
-    images: ["https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=80"],
+    title: "Meridian Moving Co. | Premium Relocation Services",
+    description: "White-glove residential and commercial relocation. Chicago's premier moving company since 2010.",
+    images: ["https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=85"],
   },
   robots: {
     index: true,
@@ -41,23 +41,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
-    name: "SwiftMove",
-    description: "Professional moving company offering residential, commercial, and long-distance moving services.",
-    url: "https://swiftmove.com",
+    name: "Meridian Moving Co.",
+    description: "Premium relocation services for residential and commercial clients. White-glove handling, climate storage, and specialty transport.",
+    url: "https://meridianmoving.com",
     telephone: "+15553456683",
-    email: "info@swiftmove.com",
+    email: "hello@meridianmoving.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "890 Commerce Blvd",
-      addressLocality: "Springfield",
+      addressLocality: "Chicago",
       addressRegion: "IL",
-      postalCode: "62701",
+      postalCode: "60614",
       addressCountry: "US",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 39.7817,
-      longitude: -89.6501,
+      latitude: 41.9242,
+      longitude: -87.6479,
     },
     openingHoursSpecification: [
       {
@@ -79,17 +79,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         closes: "16:00",
       },
     ],
-    priceRange: "$$",
+    priceRange: "$$$",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
+      ratingValue: "4.97",
       reviewCount: "2847",
     },
     sameAs: [
-      "https://facebook.com/swiftmove",
-      "https://instagram.com/swiftmove",
-      "https://twitter.com/swiftmove",
-      "https://linkedin.com/company/swiftmove",
+      "https://facebook.com/meridianmoving",
+      "https://instagram.com/meridianmoving",
+      "https://linkedin.com/company/meridianmoving",
     ],
   };
 
@@ -104,20 +103,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased">
         {children}
-        <script dangerouslySetInnerHTML={{ __html: `
-          if (typeof window !== 'undefined') {
-            const obs = new IntersectionObserver((entries) => {
-              entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-            document.addEventListener('DOMContentLoaded', () => {
-              document.querySelectorAll('.reveal,.reveal-left,.reveal-scale').forEach(el => obs.observe(el));
-            });
-            const mo = new MutationObserver(() => {
-              document.querySelectorAll('.reveal:not(.visible),.reveal-left:not(.visible),.reveal-scale:not(.visible)').forEach(el => obs.observe(el));
-            });
-            mo.observe(document.body, { childList: true, subtree: true });
-          }
-        ` }} />
       </body>
     </html>
   );
