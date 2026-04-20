@@ -178,7 +178,7 @@ export default function Home() {
         </section>
 
         {/* ===== SERVICES ===== */}
-        <section id="services" aria-labelledby="services-heading" className="py-24 lg:py-32 px-6 md:px-10 relative">
+        <section id="services" aria-labelledby="services-heading" className="py-16 md:py-20 px-6 md:px-10 relative">
           <div className="pattern-overlay" aria-hidden="true"></div>
           <div className="max-w-7xl mx-auto relative">
             <div className="max-w-xl mb-16">
@@ -200,7 +200,7 @@ export default function Home() {
         </section>
 
         {/* ===== ABOUT / WHY US ===== */}
-        <section id="about" aria-labelledby="about-heading" className="py-24 lg:py-32 px-6 md:px-10 relative" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
+        <section id="about" aria-labelledby="about-heading" className="py-16 md:py-20 px-6 md:px-10 relative" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="img-premium aspect-[4/5]">
@@ -243,7 +243,7 @@ export default function Home() {
         </section>
 
         {/* ===== PRICING ESTIMATOR ===== */}
-        <section id="estimator" aria-labelledby="estimator-heading" className="py-24 lg:py-32 px-6 md:px-10">
+        <section id="estimator" aria-labelledby="estimator-heading" className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <p className="section-badge mb-4 justify-center">Instant Estimate</p>
@@ -289,7 +289,7 @@ export default function Home() {
         </section>
 
         {/* ===== TESTIMONIALS ===== */}
-        <section id="reviews" aria-labelledby="reviews-heading" className="py-24 lg:py-32 px-6 md:px-10" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
+        <section id="reviews" aria-labelledby="reviews-heading" className="py-16 md:py-20 px-6 md:px-10" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <p className="section-badge mb-4 justify-center">Testimonials</p>
@@ -316,7 +316,7 @@ export default function Home() {
         </section>
 
         {/* ===== SERVICE AREA ===== */}
-        <section aria-labelledby="area-heading" className="py-24 lg:py-32 px-6 md:px-10">
+        <section aria-labelledby="area-heading" className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-14">
               <p className="section-badge mb-4 justify-center">Coverage</p>
@@ -340,7 +340,7 @@ export default function Home() {
         </section>
 
         {/* ===== FAQ ===== */}
-        <section id="faq" aria-labelledby="faq-heading" className="py-24 lg:py-32 px-6 md:px-10" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
+        <section id="faq" aria-labelledby="faq-heading" className="py-16 md:py-20 px-6 md:px-10" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-14">
               <p className="section-badge mb-4 justify-center">Questions</p>
@@ -370,7 +370,7 @@ export default function Home() {
         </section>
 
         {/* ===== CONTACT ===== */}
-        <section id="contact" aria-labelledby="contact-heading" className="py-24 lg:py-32 px-6 md:px-10">
+        <section id="contact" aria-labelledby="contact-heading" className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
             <div>
               <p className="section-badge mb-4">Get Started</p>
