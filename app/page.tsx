@@ -84,7 +84,7 @@ export default function Home() {
       {/* ===== NAVIGATION ===== */}
       <header>
         <nav role="navigation" aria-label="Main navigation" className="nav-premium fixed top-0 left-0 right-0 z-50 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto flex justify-between items-center h-[72px]">
+          <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-[72px]">
             <div className="flex items-center gap-3">
               <div className="brand-mark"><span>M</span></div>
               <div>
@@ -124,7 +124,7 @@ export default function Home() {
 
         {/* ===== HERO ===== */}
         <section aria-labelledby="hero-heading" className="hero-section px-6 md:px-10 pt-[72px]">
-          <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 lg:gap-8 items-center py-16 lg:py-0">
+          <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-8 items-center py-16 lg:py-0">
             <div className="lg:col-span-5 relative z-10">
               <div className="animate-fade-in-up stagger-1">
                 <p className="section-badge mb-6">Est. 2010 · Chicago</p>
@@ -180,7 +180,7 @@ export default function Home() {
         {/* ===== SERVICES ===== */}
         <section id="services" aria-labelledby="services-heading" className="py-16 md:py-20 px-6 md:px-10 relative">
           <div className="pattern-overlay" aria-hidden="true"></div>
-          <div className="max-w-7xl mx-auto relative">
+          <div className="max-w-7xl mx-auto px-6 relative">
             <div className="max-w-xl mb-16">
               <p className="section-badge mb-4">What We Do</p>
               <h2 id="services-heading" className="text-3xl lg:text-4xl font-semibold mb-4">Tailored services for<br /><span style={{ color: 'var(--amber)' }}>exceptional moves.</span></h2>
@@ -201,7 +201,7 @@ export default function Home() {
 
         {/* ===== ABOUT / WHY US ===== */}
         <section id="about" aria-labelledby="about-heading" className="py-16 md:py-20 px-6 md:px-10 relative" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="img-premium aspect-[4/5]">
                 <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=85" alt="Meridian Moving professional team in uniform" />
@@ -290,7 +290,7 @@ export default function Home() {
 
         {/* ===== TESTIMONIALS ===== */}
         <section id="reviews" aria-labelledby="reviews-heading" className="py-16 md:py-20 px-6 md:px-10" style={{ background: 'rgba(201,145,58,0.015)', borderTop: '1px solid var(--border-card)', borderBottom: '1px solid var(--border-card)' }}>
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <p className="section-badge mb-4 justify-center">Testimonials</p>
               <h2 id="reviews-heading" className="text-3xl lg:text-4xl font-semibold mb-4">Trusted by those who<br /><span style={{ color: 'var(--amber)' }}>expect the best.</span></h2>
@@ -317,7 +317,7 @@ export default function Home() {
 
         {/* ===== SERVICE AREA ===== */}
         <section aria-labelledby="area-heading" className="py-16 md:py-20 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-14">
               <p className="section-badge mb-4 justify-center">Coverage</p>
               <h2 id="area-heading" className="text-3xl lg:text-4xl font-semibold mb-4">Greater Chicago & beyond.</h2>
@@ -371,7 +371,7 @@ export default function Home() {
 
         {/* ===== CONTACT ===== */}
         <section id="contact" aria-labelledby="contact-heading" className="py-16 md:py-20 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
             <div>
               <p className="section-badge mb-4">Get Started</p>
               <h2 id="contact-heading" className="text-3xl lg:text-4xl font-semibold mb-6">Request your<br /><span style={{ color: 'var(--amber)' }}>complimentary survey.</span></h2>
@@ -462,7 +462,7 @@ export default function Home() {
 
       {/* ===== FOOTER ===== */}
       <footer role="contentinfo" className="footer-premium py-16 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
