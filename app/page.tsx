@@ -187,7 +187,7 @@ export default function Home() {
               <div className="divider"></div>
               <p className="mt-4 text-[15px] leading-relaxed" style={{ color: 'var(--text-body)' }}>Every relocation is unique. We design a custom plan around your timeline, your belongings, and your standards.</p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 gap-6 lg:grid-cols-3 gap-5">
               {services.map((s, i) => (
                 <article key={i} className="service-card group">
                   <div className="service-icon" aria-hidden="true" style={{ color: 'var(--amber)', fontFamily: 'serif', fontSize: '1.4rem' }}>{s.icon}</div>
@@ -324,7 +324,7 @@ export default function Home() {
               <div className="divider divider-center"></div>
               <p className="mt-4 text-[15px] max-w-xl mx-auto" style={{ color: 'var(--text-body)' }}>Serving the finest neighborhoods across Chicagoland and interstate corridors nationwide.</p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-10">
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-10">
               {serviceAreas.map((area, i) => (
                 <div key={i} className="text-center py-4 px-3 rounded-lg border border-white/5 transition-all hover:border-amber/20" style={{ background: 'var(--midnight-card)' }}>
                   <span className="text-[13px] font-medium">{area}</span>
