@@ -381,7 +381,7 @@ export default function Home() {
               </p>
               <div className="space-y-1">
                 <div className="contact-info-item">
-                  <div className="contact-icon" aria-hidden="true">📞</div>
+                  <div className="contact-icon" aria-hidden="true"></div>
                   <div>
                     <p className="text-[11px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>Speak With Us</p>
                     <a href="tel:+15553456683" className="font-semibold text-[15px] hover:text-amber transition-colors">(555) 345-6683</a>
