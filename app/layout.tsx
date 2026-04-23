@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: "Meridian Moving Co.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=85",
+        url: "/images/photo-1600518464441-9154a4dea21b.jpg",
         width: 1200,
         height: 630,
         alt: "Meridian Moving Co. — Premium Relocation Services",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Meridian Moving Co. | Premium Relocation Services",
     description: "White-glove residential and commercial relocation. Chicago's premier moving company since 2010.",
-    images: ["https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1200&q=85"],
+    images: ["/images/photo-1600518464441-9154a4dea21b.jpg"],
   },
   robots: {
     index: true,
@@ -35,6 +35,11 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

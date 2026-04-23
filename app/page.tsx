@@ -503,8 +503,8 @@ export default function Home() {
           <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>© 2024 Meridian Moving Co. All rights reserved.</p>
             <div className="flex gap-6 text-[11px]" style={{ color: 'var(--text-muted)' }}>
-              <a href="#" className="hover:text-amber transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-amber transition-colors">Terms of Service</a>
+              <a href="/contact" className="hover:text-amber transition-colors">Privacy Policy</a>
+              <a href="/contact" className="hover:text-amber transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
