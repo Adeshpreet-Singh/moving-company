@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Meridian Moving Co. | Premium Relocation Services",
     description: "White-glove residential and commercial relocation. Chicago's premier moving company since 2010.",
     type: "website",
-    url: "https://meridianmoving.com",
+    url: "[WEBSITE]",
     siteName: "Meridian Moving Co.",
     images: [
       {
@@ -48,9 +48,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@type": "MovingCompany",
     name: "Meridian Moving Co.",
     description: "Premium relocation services for residential and commercial clients. White-glove handling, climate storage, and specialty transport.",
-    url: "https://meridianmoving.com",
+    url: "[WEBSITE]",
     telephone: "+15553456683",
-    email: "hello@meridianmoving.com",
+    email: "[EMAIL]",
     address: {
       "@type": "PostalAddress",
       streetAddress: "890 Commerce Blvd",
@@ -91,9 +91,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       reviewCount: "2847",
     },
     sameAs: [
-      "https://facebook.com/meridianmoving",
-      "https://instagram.com/meridianmoving",
-      "https://linkedin.com/company/meridianmoving",
+      "[FACEBOOK_URL]",
+      "[INSTAGRAM_URL]",
+      "[LINKEDIN_URL]/meridianmoving",
     ],
   };
 
