@@ -15,6 +15,14 @@
   --border-default: rgba(0,0,0,0.1);
   --border-subtle: rgba(0,0,0,0.05);
   --border-hover: rgba(0,0,0,0.2);
+  --amber: initial;
+  --amber-light: initial;
+  --border-card: #e5e5e5;
+  --ivory: #f5f5f0;
+  --midnight: initial;
+  --midnight-card: initial;
+  --slate: #6b7280;
+  --text-muted: #333333;
 }
 /* FONTS_INJECTED */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
