@@ -138,7 +138,7 @@ export default function Home() {
  </p>
  <div className="flex flex-wrap gap-4 mb-14 animate-fade-in-up stagger-4">
  <button onClick={() => scrollToSection('contact')} className="btn-primary">Request a Survey</button>
- <a href="tel:[PHONE]" className="btn-outline-premium">Call [PHONE]</a>
+ <a href="tel:+91 98765 43210" className="btn-outline-premium">Call +91 98765 43210</a>
  </div>
  <div className="flex items-center gap-6 lg:gap-10">
  {[
@@ -384,21 +384,21 @@ export default function Home() {
  <div className="contact-icon" aria-hidden="true"></div>
  <div>
  <p className="text-[11px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>Speak With Us</p>
- <a href="tel:[PHONE]" className="font-semibold text-[15px] hover:text-amber transition-colors">[PHONE]</a>
+ <a href="tel:+91 98765 43210" className="font-semibold text-[15px] hover:text-amber transition-colors">+91 98765 43210</a>
  </div>
  </div>
  <div className="contact-info-item">
  <div className="contact-icon" aria-hidden="true"></div>
  <div>
  <p className="text-[11px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>Email</p>
- <a href="mailto:[EMAIL]" className="font-semibold text-[15px] hover:text-amber transition-colors">[EMAIL]</a>
+ <a href="mailto:contact@example.com" className="font-semibold text-[15px] hover:text-amber transition-colors">contact@example.com</a>
  </div>
  </div>
  <div className="contact-info-item">
  <div className="contact-icon" aria-hidden="true"></div>
  <div>
  <p className="text-[11px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>Chicago Office</p>
- <p className="font-semibold text-[15px]">[ADDRESS]</p>
+ <p className="font-semibold text-[15px]">123 Main Street, City, India</p>
  </div>
  </div>
  <div className="contact-info-item">
@@ -423,7 +423,7 @@ export default function Home() {
  </div>
  <div>
  <label htmlFor="phone" className="block text-[12px] uppercase tracking-[0.12em] font-semibold mb-2" style={{ color: 'var(--text-muted)' }}>Phone *</label>
- <input id="phone" name="phone" type="tel" required placeholder="[PHONE]" className="form-input-premium" />
+ <input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" className="form-input-premium" />
  </div>
  </div>
  <div>
@@ -451,7 +451,7 @@ export default function Home() {
  )}
  {formStatus === 'error' && (
  <div className="p-4 rounded-lg text-center text-[14px]" style={{ background: 'rgba(220,50,50,0.08)', border: '1px solid rgba(220,50,50,0.2)', color: '#f87171' }}>
- Something went wrong. Please call us at [PHONE].
+ Something went wrong. Please call us at +91 98765 43210.
  </div>
  )}
  </form>
@@ -485,9 +485,9 @@ export default function Home() {
  <div>
  <h3 className="text-[12px] uppercase tracking-[0.15em] font-semibold mb-4" style={{ color: 'var(--amber)' }}>Contact</h3>
  <div className="space-y-2 text-[13px]" style={{ color: 'var(--text-muted)' }}>
- <a href="tel:[PHONE]" className="block hover:text-amber transition-colors">[PHONE]</a>
- <a href="mailto:[EMAIL]" className="block hover:text-amber transition-colors">[EMAIL]</a>
- <p>[ADDRESS]</p>
+ <a href="tel:+91 98765 43210" className="block hover:text-amber transition-colors">+91 98765 43210</a>
+ <a href="mailto:contact@example.com" className="block hover:text-amber transition-colors">contact@example.com</a>
+ <p>123 Main Street, City, India</p>
  </div>
  <div className="flex gap-3 mt-5">
  {[
