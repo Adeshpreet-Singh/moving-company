@@ -4,8 +4,8 @@
   --bg-canvas: #f3f4f6;
   --bg-panel: #ffffff;
   --bg-elevated: #f3f4f6;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
+  --text-primary: #ffffff;
+  --text-secondary: #a0aec0;
   --text-tertiary: #6b7280;
   --accent-brand: #f59e0b;
   --accent-interactive: #4b5563;
@@ -695,13 +695,4 @@ button:active, [role="button"]:active {
 .anim-enter-delay-3 { animation-delay: 0.15s; }
 .anim-enter-delay-4 { animation-delay: 0.2s; }
 
-/* DESIGN_SYSTEM_INJECTED */
-body {
-  background-color: #f3f4f6;
-  color: #111827;
-}
-.bg-primary { background-color: #374151 !important; }
-.bg-secondary { background-color: #4b5563 !important; }
-.text-primary { color: #374151 !important; }
-.text-accent { color: #f59e0b !important; }
-.bg-accent { background-color: #f59e0b !important; }
+

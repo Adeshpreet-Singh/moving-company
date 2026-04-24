@@ -28,7 +28,7 @@ export default function Home() {
  setFormStatus('loading');
  const form = e.currentTarget;
  const formData = new FormData(form);
- formData.append('access_key', '[WEB3FORMS_KEY]');
+ formData.append('access_key', '00000000-0000-0000-0000-000000000000');
  formData.append('subject', 'New Quote Request - Meridian Moving Co.');
  try {
  const res = await fetch('https://api.web3forms.com/submit', {
@@ -134,11 +134,11 @@ export default function Home() {
  <span style={{ color: 'var(--amber)' }}>to an art form.</span>
  </h2>
  <p className="text-base lg:text-lg mb-10 max-w-md leading-relaxed animate-fade-in-up stagger-3" style={{ color: 'var(--text-body)' }}>
- For discerning clients who expect perfection. We don&apos;t just move belongings — we relocate lives with precision, care, and quiet professionalism.
+ For discerning clients who expect perfection. We don't just move belongings — we relocate lives with precision, care, and quiet professionalism.
  </p>
  <div className="flex flex-wrap gap-4 mb-14 animate-fade-in-up stagger-4">
  <button onClick={() => scrollToSection('contact')} className="btn-primary">Request a Survey</button>
- <a href="tel:+91 98765 43210" className="btn-outline-premium">Call +91 98765 43210</a>
+ <a href="tel:+1-800-555-0260" className="btn-outline-premium">Call +1-800-555-0260</a>
  </div>
  <div className="flex items-center gap-6 lg:gap-10">
  {[
@@ -304,7 +304,7 @@ export default function Home() {
  <span key={j} style={{ color: 'var(--amber)' }} aria-hidden="true"></span>
  ))}
  </div>
- <p className="text-[14px] leading-relaxed mb-6 relative z-10" style={{ color: 'var(--text-body)' }}>&ldquo;{t.text}&rdquo;</p>
+ <p className="text-[14px] leading-relaxed mb-6 relative z-10" style={{ color: 'var(--text-body)' }}>"{t.text}"</p>
  <div className="border-t border-white/5 pt-4">
  <p className="font-semibold text-[14px]">{t.name}</p>
  <p className="text-[12px]" style={{ color: 'var(--text-muted)' }}>{t.role}</p>
@@ -384,7 +384,7 @@ export default function Home() {
  <div className="contact-icon" aria-hidden="true"></div>
  <div>
  <p className="text-[11px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>Speak With Us</p>
- <a href="tel:+91 98765 43210" className="font-semibold text-[15px] hover:text-amber transition-colors">+91 98765 43210</a>
+ <a href="tel:+1-800-555-0260" className="font-semibold text-[15px] hover:text-amber transition-colors">+1-800-555-0260</a>
  </div>
  </div>
  <div className="contact-info-item">
@@ -423,7 +423,7 @@ export default function Home() {
  </div>
  <div>
  <label htmlFor="phone" className="block text-[12px] uppercase tracking-[0.12em] font-semibold mb-2" style={{ color: 'var(--text-muted)' }}>Phone *</label>
- <input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" className="form-input-premium" />
+ <input id="phone" name="phone" type="tel" required placeholder="+1-800-555-0260" className="form-input-premium" />
  </div>
  </div>
  <div>
@@ -451,7 +451,7 @@ export default function Home() {
  )}
  {formStatus === 'error' && (
  <div className="p-4 rounded-lg text-center text-[14px]" style={{ background: 'rgba(220,50,50,0.08)', border: '1px solid rgba(220,50,50,0.2)', color: '#f87171' }}>
- Something went wrong. Please call us at +91 98765 43210.
+ Something went wrong. Please call us at +1-800-555-0260.
  </div>
  )}
  </form>
@@ -485,7 +485,7 @@ export default function Home() {
  <div>
  <h3 className="text-[12px] uppercase tracking-[0.15em] font-semibold mb-4" style={{ color: 'var(--amber)' }}>Contact</h3>
  <div className="space-y-2 text-[13px]" style={{ color: 'var(--text-muted)' }}>
- <a href="tel:+91 98765 43210" className="block hover:text-amber transition-colors">+91 98765 43210</a>
+ <a href="tel:+1-800-555-0260" className="block hover:text-amber transition-colors">+1-800-555-0260</a>
  <a href="mailto:contact@example.com" className="block hover:text-amber transition-colors">contact@example.com</a>
  <p>123 Main Street, City, India</p>
  </div>
